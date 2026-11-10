@@ -97,9 +97,11 @@ Mirrors the old Java selector layout: ECR image + ClusterIP Service on port `808
 
 | Branch | Deploy env | K8s suffix | Service DNS |
 |---|---|---|---|
-| `dev` | dev | `dev` | `simplified-transport-selector-dev:8085` |
-| `stage` | stage | `stage` | `simplified-transport-selector-stage:8085` |
-| `latest` / `main` | prod | `prod` | `simplified-transport-selector-prod:8085` |
+| `dev` | `dev` | `dev` | `simplified-transport-selector-dev:8085` |
+| `stage` | `stage` | `stage` | `simplified-transport-selector-stage:8085` |
+| `main` | `main` | `prod` | `simplified-transport-selector-prod:8085` |
+
+Image tags: `${env}-${short_sha}` plus floating `${env}` (K8s pulls the floating tag).
 
 Pipeline: `.github/workflows/ci.yml` (test → build → ECR → `kubectl apply` on `eks-prod`).
 
@@ -108,8 +110,8 @@ One-time AWS setup (same pattern as `route-allocation-cache`):
 1. Create ECR repo `simplified-transport-selector` (or let CI create it).
 2. Create IAM role `github-actions-simplified-transport-selector-deploy` with OIDC to this repo and policies under `iam/`.
 3. Apply `iam/github-actions-deploy-k8s-rbac.yaml` on the cluster.
-4. Create GitHub Environments `dev`, `stage`, `latest` with required reviewers if desired.
-5. Point GW `TRANSPORT_SELECTOR_HOST` / `PORT` at the new service when ready to cut over.
+4. Create GitHub Environments `dev`, `stage`, `main` with required reviewers if desired.
+5. Point GW dual-selector env vars + `transport_selector_backend` when ready to cut over.
 
 Local image smoke:
 

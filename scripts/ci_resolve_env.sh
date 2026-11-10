@@ -4,6 +4,6 @@ branch="${GITHUB_REF_NAME:-main}"
 case "${branch}" in
   dev) echo "dev" ;;
   stage) echo "stage" ;;
-  latest|main) echo "latest" ;;
+  main) echo "main" ;;
   *) echo "none" ;;
 esac

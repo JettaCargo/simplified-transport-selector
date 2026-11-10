@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [dev, stage, latest, main]
+    branches: [dev, stage, main]
   pull_request:
     branches: [main, dev]
 
@@ -78,13 +78,14 @@ jobs:
       - name: Build, smoke test, and push image
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
-          IMAGE_TAG: ${{ needs.resolve-env.outputs.env_name }}-${{ github.sha }}
           ECR_URI: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_DEFAULT_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
         run: |
-          docker build --file container/Dockerfile --tag "${ECR_URI}:${IMAGE_TAG}" --tag "${ECR_URI}:${ENV}" .
+          short_sha="$(printf '%s' "${GITHUB_SHA}" | cut -c1-7)"
+          image_tag="${ENV}-${short_sha}"
+          docker build --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${ENV}" .
           chmod +x scripts/ci_image_smoke_test.sh
           IMAGE="${ECR_URI}:${ENV}" scripts/ci_image_smoke_test.sh
-          docker push "${ECR_URI}:${IMAGE_TAG}"
+          docker push "${ECR_URI}:${image_tag}"
           docker push "${ECR_URI}:${ENV}"
       - name: Configure kubeconfig and deploy
         env:

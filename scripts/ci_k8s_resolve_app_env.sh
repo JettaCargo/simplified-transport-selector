@@ -4,6 +4,6 @@ set -euo pipefail
 case "${DEPLOY_ENV}" in
   dev) echo "dev" ;;
   stage) echo "stage" ;;
-  latest) echo "prod" ;;
+  main) echo "prod" ;;
   *) echo "unsupported deploy env: ${DEPLOY_ENV}" >&2; exit 1 ;;
 esac
