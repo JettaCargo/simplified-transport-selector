@@ -53,28 +53,32 @@ PORT=8085 npm start
 
 ### Flags to test (gateway + this service)
 
-Point the gateway at this service:
+Gateway env keeps **both** backends configured:
 
 ```bash
-export TRANSPORT_SELECTOR_HOST="simplified-transport-selector-prod"  # or 127.0.0.1 locally
+export TRANSPORT_SELECTOR_HOST="transport-selector-prod"                 # classic Java
 export TRANSPORT_SELECTOR_PORT="8085"
+export SIMPLIFIED_TRANSPORT_SELECTOR_HOST="simplified-transport-selector-prod"  # this app (local: 127.0.0.1)
+export SIMPLIFIED_TRANSPORT_SELECTOR_PORT="8085"                         # local often 18085
 ```
 
-Enable cumulative reselection bind feedback in the cargo profile / request:
+Cargo / request config chooses which one and whether to send bind feedback:
 
 ```json
 {
   "config": {
     "algoritmo": {
+      "transport_selector_backend": "simplified",
       "enable_reselection_bind_feedback": true
     }
   }
 }
 ```
 
-When the flag is `true`, the gateway automatically builds and sends
-`reselection_feedback` on every reselection POST (compiled across passes).
-No separate “send feedback” flag.
+- `transport_selector_backend`: `classic` | `simplified` (default `classic`)
+- `enable_reselection_bind_feedback`: when `true`, gateway auto-sends compiled
+  `reselection_feedback` on every reselection (no separate send flag). Only the
+  simplified selector applies those cuts.
 
 ## Dependencies
 
