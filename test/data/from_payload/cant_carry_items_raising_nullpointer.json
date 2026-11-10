@@ -1,0 +1,910 @@
+{
+    "gapWeight": 0,
+    "accessories": [],
+    "vehicles": [
+        {
+            "amount": 1,
+            "cost": 1,
+            "unlimited": true,
+            "name": "Truck Sider",
+            "containers": [
+                {
+                    "sequencia": 1,
+                    "name": "Truck Sider",
+                    "length": 8.5,
+                    "width": 2.5,
+                    "id": "5f75b128b32993001150ad1c",
+                    "supported_weight": 12000,
+                    "height": 2.65
+                }
+            ],
+            "id": "5f75b128b32993001150ad1c",
+            "supported_weight": 12000
+        },    
+        {
+            "amount": 1,
+            "cost": 0,
+            "unlimited": true,
+            "name": "Utilitario 0.4 ton",
+            "containers": [
+                {
+                    "sequencia": 1,
+                    "name": "Utilitario 0.4 ton",
+                    "length": 1.2,
+                    "width": 1.2,
+                    "id": "5f75ae2eb32993001150ad15",
+                    "supported_weight": 400,
+                    "height": 1.2
+                }
+            ],
+            "id": "5f75ae2eb32993001150ad15",
+            "supported_weight": 400
+        }                       
+    ],
+    "acceptDividedCollect": true,
+    "reverse": false,
+    "log_header": "Cargo ID:62b1f201d1a93d00900bda75/2022-06-28 13:11:13.543",
+    "sortByWeight": false,
+    "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+    "gapVolume": 0,
+    "first_criteria": "AMOUNT",
+    "config": {
+        "minimum_required_supported_weight": 0,
+        "minimum_required_volume": 0,
+        "measures_for_transport_choice_heuristics": [
+            "WIDTH",
+            "SUPPORTED_WEIGHT",
+            "HEIGHT",
+            "LENGTH",
+            "WEIGHT"
+        ],
+        "enable_minimum_required_vehicles": true
+    },
+    "collects": [
+        {
+            "restrictedToVehicles": [
+                "5f75b3a1b32993001150ad23"
+            ],
+            "id": "5f75ec18b32993001150f9db",
+            "items": [
+                {
+                    "area": 0.6232,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 0.82,
+                    "weight": 272.74,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.548,
+                    "name": "CACAMBA PLASTICA MEDIA ALTA",
+                    "width": 0.76,
+                    "id": "673",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.88
+                },
+                {
+                    "area": 0.6232,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 0.82,
+                    "weight": 278.5,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.548,
+                    "name": "CACAMBA PLASTICA MEDIA ALTA",
+                    "width": 0.76,
+                    "id": "674",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.88
+                }
+            ],
+            "order": 2
+        },
+        {
+            "restrictedToVehicles": [
+                "5f75b3a1b32993001150ad23"
+            ],
+            "id": "5f75ec18b32993001150fa0c",
+            "items": [
+                {
+                    "area": 1.2444,
+                    "amount": 12,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 321.21,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1354",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 714.01,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1355",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 4,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 450.01,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1356",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                }
+            ],
+            "order": 4
+        },
+        {
+            "restrictedToVehicles": [
+                "5f75b3a1b32993001150ad23"
+            ],
+            "id": "5f75ec18b32993001150fa09",
+            "items": [
+                {
+                    "area": 1.2444,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 13241,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "644",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 13241,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "645",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 419.13800000000003,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "646",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 6,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 427.41799999999995,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "647",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 6,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 428.63,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "648",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 437.93,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "649",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 4,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 497.63,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.859,
+                    "name": "MOBIL",
+                    "width": 1.02,
+                    "id": "650",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.69
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 5288,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "651",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 5288,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "652",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 6,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 11648,
+                    "current_rotation": "POS1",
+                    "supported_weight": 34944,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "653",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 6,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 11678,
+                    "current_rotation": "POS1",
+                    "supported_weight": 23356,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "654",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 289.304,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "655",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 288.824,
+                    "current_rotation": "POS1",
+                    "supported_weight": 577.648,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "656",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 9,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 290.96,
+                    "current_rotation": "POS1",
+                    "supported_weight": 581.92,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "657",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 9,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 289.304,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "658",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 277.462,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "659",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 277.022,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "660",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 287.384,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "661",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 287.864,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "662",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 284.062,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "663",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 284.062,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "664",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 3,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 277.022,
+                    "current_rotation": "POS1",
+                    "supported_weight": 0,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "665",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 3,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 277.022,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "666",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 280.98199999999997,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "667",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 2,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 280.54200000000003,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "668",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 5,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 281.86199999999997,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "669",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 5,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 281.422,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "670",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 282.368,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "671",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.3161,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.23,
+                    "weight": 282.302,
+                    "current_rotation": "POS1",
+                    "supported_weight": 100000,
+                    "priority": 0,
+                    "type": "Package",
+                    "volume": 0.684,
+                    "name": "RACK FECHADO",
+                    "width": 1.07,
+                    "id": "672",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.52
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 812.73,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1357",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 16.744000000000003,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 0.597,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1358",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.48
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 280.772,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1359",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 4,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 313.05,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1360",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 313.05,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1361",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 313.05,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.643,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1362",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.32
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 203.486,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 1.294,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1363",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 1.04
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 10.115,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 0.436,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1364",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.35
+                },
+                {
+                    "area": 1.2444,
+                    "amount": 1,
+                    "unlimited": false,
+                    "length": 1.22,
+                    "weight": 123.33000000000003,
+                    "current_rotation": "POS1",
+                    "supported_weight": 500000,
+                    "priority": 0,
+                    "type": "Pallet",
+                    "volume": 0.622,
+                    "name": "Palete",
+                    "width": 1.02,
+                    "id": "1365",
+                    "rotations": [
+                        "POS1"
+                    ],
+                    "height": 0.5
+                }
+            ],
+            "order": 5
+        }
+    ],
+    "second_criteria": "VOLUME"
+}

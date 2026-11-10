@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: VAR_NAME-VAR_ENV
+spec:
+  ports:
+  - port: 8085
+    protocol: TCP
+    targetPort: 8085
+  selector:
+    app: VAR_NAME
+    env: VAR_ENV
+  type: ClusterIP

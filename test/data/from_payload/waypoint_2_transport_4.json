@@ -1,0 +1,99 @@
+{
+  "gapWeight": 0,
+  "accessories": [],
+  "vehicles": [
+    {
+      "amount": 1,
+      "cost": 0,
+      "unlimited": true,
+      "name": "Carreta 3E Reta",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Carreta 3E Reta",
+          "length": 14.8,
+          "width": 2.5,
+          "id": "602abc1e1a3f08001087dd7c",
+          "supported_weight": 25000,
+          "height": 2.7
+        }
+      ],
+      "id": "602abc1e1a3f08001087dd7c",
+      "supported_weight": 25000
+    }
+  ],
+  "acceptDividedCollect": true,
+  "reverse": false,
+  "log_header": "Cargo ID:628bb87da9dfab00256ac335/2022-05-23 14:17:13.877",
+  "sortByWeight": false,
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+  "gapVolume": 0,
+  "first_criteria": "AMOUNT",
+  "config": {
+    "minimum_required_supported_weight": 0.2,
+    "minimum_required_volume": 300,
+    "measures_for_transport_choice_heuristics": [
+      "SUPPORTED_WEIGHT",
+      "WEIGHT",
+      "HEIGHT",
+      "LENGTH",
+      "WIDTH"
+    ],
+    "enable_minimum_required_vehicles": true
+  },
+  "collects": [
+    {
+      "restrictedToVehicles": [],
+      "id": "602ab9571a3f08001087dc93",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 1,
+          "weight": 0.1,
+          "current_rotation": "POS1",
+          "supported_weight": 10000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 1,
+          "name": "Box",
+          "width": 1,
+          "id": "0",
+          "rotations": [
+            "POS1"
+          ],
+          "height": 1
+        }
+      ],
+      "order": 0
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "602ab9571a3f08001087dc8f",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 1,
+          "weight": 0.1,
+          "current_rotation": "POS1",
+          "supported_weight": 10000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 1,
+          "name": "Box",
+          "width": 1,
+          "id": "1",
+          "rotations": [
+            "POS1"
+          ],
+          "height": 1
+        }
+      ],
+      "order": 0
+    }
+  ],
+  "second_criteria": "VOLUME"
+}

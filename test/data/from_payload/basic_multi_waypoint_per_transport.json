@@ -1,0 +1,97 @@
+{
+  "gapWeight": 0,
+  "accessories": [],
+  "vehicles": [
+    {
+      "amount": 2,
+      "cost": 0,
+      "unlimited": false,
+      "name": "Toco Sider",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Toco Sider",
+          "length": 6.9,
+          "width": 2.48,
+          "id": "5dbc9a2f112dae5cd8df66ba",
+          "supported_weight": 6000,
+          "height": 2.35
+        }
+      ],
+      "id": "5dbc9a2f112dae5cd8df66ba",
+      "supported_weight": 6000
+    }
+  ],
+  "acceptDividedCollect": true,
+  "reverse": false,
+  "log_header": "Cargo ID:64f76c53cb57e700228ca730/2023-09-11 16:15:27.029",
+  "sortByWeight": false,
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+  "gapVolume": 0.2,
+  "first_criteria": "DISABLED",
+  "config": {
+    "minimum_required_supported_weight": 0,
+    "minimum_required_volume": 0,
+    "measures_for_transport_choice_heuristics": [],
+    "single_waypoint_per_transport": false,
+    "enable_minimum_required_vehicles": false
+  },
+  "collects": [
+    {
+      "restrictedToVehicles": [
+        "64f23d10dc4ad3001734684d",
+        "64f24009dc4ad300173468a6"
+      ],
+      "id": "5dc1976df4d5c191f0d6c423",
+      "items": [
+        {
+          "area": 0.6942,
+          "amount": 1,
+          "unlimited": false,
+          "length": 0.78,
+          "weight": 281.12,
+          "current_rotation": "POS1",
+          "supported_weight": 10000,
+          "priority": 0,
+          "type": "Package",
+          "volume": 0.541,
+          "name": "20TBPHGS32",
+          "width": 0.89,
+          "id": "0",
+          "rotations": [
+            "POS1"
+          ],
+          "height": 0.78
+        }
+      ],
+      "order": 0
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "5f91c2463d5d410017dd8dab",
+      "items": [
+        {
+          "area": 0.010000000000000002,
+          "amount": 1,
+          "unlimited": false,
+          "length": 0.1,
+          "weight": 0.01,
+          "current_rotation": "POS1",
+          "supported_weight": 10000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 0.001,
+          "name": "A  9606900026    8R35",
+          "width": 0.1,
+          "id": "1",
+          "rotations": [
+            "POS1"
+          ],
+          "height": 0.1
+        }
+      ],
+      "order": 0
+    }
+  ],
+  "second_criteria": "DISABLED"
+}

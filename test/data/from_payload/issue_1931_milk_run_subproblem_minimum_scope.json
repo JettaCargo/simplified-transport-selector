@@ -1,0 +1,151 @@
+{
+  "gapWeight": 0,
+  "accessories": [],
+  "vehicles": [
+    {
+      "amount": 1,
+      "cost": 0,
+      "unlimited": true,
+      "name": "Carreta REBAIXADA",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Carreta REBAIXADA",
+          "length": 7.4,
+          "width": 2.5,
+          "id": "carreta-body",
+          "supported_weight": 28000,
+          "height": 2.7
+        },
+        {
+          "sequencia": 2,
+          "name": "Carreta REBAIXADA",
+          "length": 7.4,
+          "width": 2.5,
+          "id": "carreta-neck",
+          "supported_weight": 28000,
+          "height": 2.7
+        }
+      ],
+      "id": "carreta-id",
+      "supported_weight": 28000
+    }
+  ],
+  "acceptDividedCollect": true,
+  "reverse": false,
+  "log_header": "ISSUE-1931-milk-run-subproblem",
+  "sortByWeight": false,
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+  "gapVolume": 0,
+  "first_criteria": "AMOUNT",
+  "config": {
+    "minimum_required_supported_weight": 1000,
+    "minimum_required_volume": 150,
+    "measures_for_transport_choice_heuristics": [
+      "SUPPORTED_WEIGHT",
+      "WEIGHT",
+      "HEIGHT",
+      "LENGTH",
+      "WIDTH"
+    ],
+    "enable_minimum_required_vehicles": true
+  },
+  "collects": [
+    {
+      "restrictedToVehicles": [],
+      "id": "large-waypoint",
+      "items": [
+        {
+          "area": 1,
+          "amount": 12,
+          "unlimited": false,
+          "length": 2,
+          "weight": 50,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 10,
+          "name": "LargeBox",
+          "width": 2,
+          "id": "large-item",
+          "rotations": ["POS1"],
+          "height": 2.5
+        }
+      ],
+      "order": 0
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "minor-waypoint-a",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 2,
+          "weight": 100,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 10,
+          "name": "MinorA",
+          "width": 2,
+          "id": "minor-a",
+          "rotations": ["POS1"],
+          "height": 2.5
+        }
+      ],
+      "order": 1
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "minor-waypoint-b",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 2,
+          "weight": 100,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 10,
+          "name": "MinorB",
+          "width": 2,
+          "id": "minor-b",
+          "rotations": ["POS1"],
+          "height": 2.5
+        }
+      ],
+      "order": 2
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "minor-waypoint-c",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 2,
+          "weight": 100,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 10,
+          "name": "MinorC",
+          "width": 2,
+          "id": "minor-c",
+          "rotations": ["POS1"],
+          "height": 2.5
+        }
+      ],
+      "order": 3
+    }
+  ]
+}

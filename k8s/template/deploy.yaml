@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: VAR_NAME
+    env: VAR_ENV
+  name: VAR_NAME-VAR_ENV
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: VAR_NAME
+      env: VAR_ENV
+  template:
+    metadata:
+      labels:
+        app: VAR_NAME
+        env: VAR_ENV
+    spec:
+      containers:
+      - name: VAR_NAME-VAR_ENV
+        image: 329521032930.dkr.ecr.us-east-1.amazonaws.com/VAR_NAME:VAR_VERSION
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: HOST
+          value: "0.0.0.0"
+        - name: PORT
+          value: "8085"
+        - name: LOG_LEVEL
+          value: "INFO"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8085
+          protocol: TCP
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8085
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+          initialDelaySeconds: 15
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8085
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+          initialDelaySeconds: 5
+      imagePullSecrets:
+      - name: aws-ecr-credentials
+      restartPolicy: Always
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: karpenter.k8s.aws/instance-generation
+                    operator: Gt
+                    values: ["2"]
+      nodeSelector:
+        karpenter.sh/nodepool: VAR_NODEPOOL
+        karpenter.k8s.aws/instance-category: t
+        VAR_CAPACITY_LINE
+      tolerations:
+        - key: karpenter.sh/nodepool
+          operator: Equal
+          value: VAR_NODEPOOL
+          effect: NoSchedule

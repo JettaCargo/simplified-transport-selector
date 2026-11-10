@@ -1,0 +1,24 @@
+{
+  "name": "simplified-transport-selector",
+  "version": "0.1.0",
+  "description": "Aggregated MILP transport selector for allocation-gateway (type-level counts, reselection bind feedback)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha 'test/src/**/*.test.js' --timeout 30000",
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "highs": "^1.15.4"
+  },
+  "devDependencies": {
+    "chai": "^4.5.0",
+    "mocha": "^11.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luiz-jetta/simplified-transport-selector.git"
+  }
+}

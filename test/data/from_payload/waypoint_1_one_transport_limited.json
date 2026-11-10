@@ -1,0 +1,91 @@
+{"gapWeight": 0,
+  "accessories": [],
+  "vehicles": [
+    {
+      "amount": 10,
+      "cost": 0,
+      "unlimited": false,
+      "name": "Carreta SL",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Carreta SL",
+          "length": 12.16,
+          "width": 2.59,
+          "id": "61df0b430af565001a36224d",
+          "supported_weight": 29360,
+          "height": 2.46
+        }
+      ],
+      "id": "61df0b430af565001a36224d",
+      "supported_weight": 29360
+    }
+  ],
+  "acceptDividedCollect": true,
+  "reverse": false,
+  "log_header": "Cargo ID:excess of loading on axles - test case: automatic_weight_distribution/case_1.json",
+  "sortByWeight": false,
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+  "gapVolume": 0,
+  "first_criteria": "DISABLED",
+  "config": {
+    "minimum_required_supported_weight": 100360.1,
+    "minimum_required_volume": 77.576,
+    "enable_minimum_required_vehicles": false
+  },
+  "collects": [
+    {
+      "restrictedToVehicles": [],
+      "id": "priority_group",
+      "items": [],
+      "order": -1
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "non_priority_group",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 1,
+          "weight": 7000,
+          "current_rotation": "POS1",
+          "supported_weight": 0,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 1,
+          "name": "fred-test-1",
+          "width": 1,
+          "id": "0",
+          "rotations": [
+            "POS1"
+          ],
+          "height": 1
+        },
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 1,
+          "weight": 4000,
+          "current_rotation": "POS1",
+          "supported_weight": 0,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 1,
+          "name": "fred-test-2",
+          "width": 1,
+          "id": "1",
+          "rotations": [
+            "POS1"
+          ],
+          "height": 1
+        }
+      ],
+      "order": 0
+    }
+  ],
+  "second_criteria": "DISABLED"
+}
+

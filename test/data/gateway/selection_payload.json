@@ -1,0 +1,109 @@
+{
+  "config": {
+    "enable_minimum_required_vehicles": true,
+    "measures_for_transport_choice_heuristics": ["SUPPORTED_WEIGHT", "WEIGHT", "HEIGHT", "LENGTH", "WIDTH"],
+    "minimum_required_volume": 2,
+    "minimum_required_supported_weight": 11000
+  },
+  "sortByWeight": false,
+  "reverse": false,
+  "gapWeight": 0,
+  "gapVolume": 0,
+  "collects": [
+    {
+      "order": 0,
+      "id": "encoded_wp_metalsa_a",
+      "restrictedToVehicles": [],
+      "items": [
+        {
+          "id": "item_a",
+          "name": "sku-a",
+          "weight": 8735,
+          "amount": 1,
+          "volume": 1,
+          "supported_weight": 0,
+          "priority": 0,
+          "rotations": ["POS1"],
+          "height": 1,
+          "length": 1,
+          "width": 1,
+          "unlimited": false,
+          "type": "Caixa",
+          "current_rotation": "POS1"
+        }
+      ]
+    },
+    {
+      "order": 1,
+      "id": "encoded_wp_metalsa_b",
+      "restrictedToVehicles": [],
+      "items": [
+        {
+          "id": "item_b",
+          "name": "sku-b",
+          "weight": 2265,
+          "amount": 1,
+          "volume": 1,
+          "supported_weight": 0,
+          "priority": 0,
+          "rotations": ["POS1"],
+          "height": 1,
+          "length": 1,
+          "width": 1,
+          "unlimited": false,
+          "type": "Caixa",
+          "current_rotation": "POS1"
+        }
+      ]
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "69d952d3d594be001f63f35a",
+      "name": "Carreta Trucada",
+      "supported_weight": 32000,
+      "amount": 1,
+      "unlimited": true,
+      "cost": 10,
+      "containers": [
+        {
+          "id": "c1",
+          "name": "Carreta Trucada",
+          "sequencia": 1,
+          "supported_weight": 32000,
+          "height": 2.7,
+          "length": 14.0,
+          "width": 2.5
+        }
+      ]
+    },
+    {
+      "id": "69d952d3d594be001f63f357",
+      "name": "Carreta Simples",
+      "supported_weight": 25000,
+      "amount": 1,
+      "unlimited": true,
+      "cost": 8,
+      "containers": [
+        {
+          "id": "c2",
+          "name": "Carreta Simples",
+          "sequencia": 1,
+          "supported_weight": 25000,
+          "height": 2.6,
+          "length": 13.0,
+          "width": 2.4
+        }
+      ]
+    }
+  ],
+  "accessories": [],
+  "acceptDividedCollect": true,
+  "log_header": "6af30051&1/encoded_wp_metalsa_a-selection-0",
+  "_id": "6af30051&1",
+  "trace_id": "6af30051&1",
+  "_company": "usiminas",
+  "first_criteria": "AMOUNT",
+  "second_criteria": "VOLUME",
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0
+}

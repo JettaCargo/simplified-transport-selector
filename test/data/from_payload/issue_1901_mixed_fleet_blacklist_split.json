@@ -1,0 +1,851 @@
+{
+  "config": {
+    "enable_minimum_required_vehicles": true,
+    "measures_for_transport_choice_heuristics": [
+      "SUPPORTED_WEIGHT",
+      "HEIGHT",
+      "LENGTH",
+      "WIDTH",
+      "WEIGHT"
+    ],
+    "minimum_required_volume": 144.00974404999994,
+    "minimum_required_supported_weight": 19627.678
+  },
+  "sortByWeight": false,
+  "reverse": false,
+  "gapWeight": 0,
+  "gapVolume": 0,
+  "collects": [
+    {
+      "order": 0,
+      "id": "97452ec0b4a215dccdb5c1532746ed3f34936a5aeae4dc55e6372fc3cc45dde2",
+      "items": [
+        {
+          "weight": 396.46,
+          "amount": 2,
+          "id": "24623461c86e363cdd3744889da2e2ea71e7217a1e6ad5b5289550fc4f68aab5",
+          "name": "ECM---7667",
+          "volume": 7.2576,
+          "supported_weight": 1500,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 2.52,
+          "length": 2.4,
+          "width": 1.2,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        }
+      ],
+      "restrictedToVehicles": [
+        "682dde7705114200256f94fd"
+      ]
+    },
+    {
+      "order": 0,
+      "id": "9b037a560e35934cb4051e14353243c1873df159d3ab979215ae3fe12d3ea4ce",
+      "items": [
+        {
+          "weight": 350.35,
+          "amount": 1,
+          "id": "079ced2fc62f91ff610595d0d8947815e38b6a2d564f7f5e08113e0cbd67cd19",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 112.6,
+          "amount": 1,
+          "id": "a2d5dfa8c1695e16ddb14fe5a590f10f6d7520b65bf1715316dc7804523b5091",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 488.32,
+          "amount": 1,
+          "id": "e1fb718d6e2fcc22f2907957f4550a4ba76421778af3fb5054a46a2964a721e3",
+          "name": "Box",
+          "volume": 1.7856000000000003,
+          "supported_weight": 3000,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.93,
+          "length": 1.6,
+          "width": 1.2,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 450.68,
+          "amount": 1,
+          "id": "a021f45a901e063af4f8a70ec0c7f3d1911e0453c3e20ec1f40686b4790c2b24",
+          "name": "Box",
+          "volume": 1.116,
+          "supported_weight": 2000,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.93,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 611.224,
+          "amount": 1,
+          "id": "adaef13b4ea6e7b894ab773930c06a739bfa80ae51f75d724c6dd117777f5e2e",
+          "name": "Box",
+          "volume": 1.8719999999999999,
+          "supported_weight": 2000,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.975,
+          "length": 1.6,
+          "width": 1.2,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 547.3,
+          "amount": 1,
+          "id": "4fcee6970021cd36527ca6f8dfd78cefbf11361e5e42cb294e491854c9124ca0",
+          "name": "Box",
+          "volume": 1.7856000000000003,
+          "supported_weight": 3000,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.93,
+          "length": 1.6,
+          "width": 1.2,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 808.3,
+          "amount": 1,
+          "id": "60ffbba4109f6bd047e2be7a00e208b2bfd75e7218b63b1e01d40a5038c8967f",
+          "name": "Box",
+          "volume": 1.8719999999999999,
+          "supported_weight": 2000,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.975,
+          "length": 1.6,
+          "width": 1.2,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 145.24,
+          "amount": 1,
+          "id": "195f0d2cfacb6fdd6b727846d7c8c8fe4690f3ada307ec94cedacf0916d5858f",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 74.308,
+          "amount": 41,
+          "id": "6f867e421503f4c1fbab71605feee8a3e4b1b62ed79b9ff1792da34270a6e82d",
+          "name": "4G",
+          "volume": 1.0579199999999997,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.64,
+          "length": 1.45,
+          "width": 1.14,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 62.368,
+          "amount": 1,
+          "id": "5e84c2822b79f86f2b252977db958b0189d15caa494ab2fe8a728e2f0a3797ed",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 65.068,
+          "amount": 1,
+          "id": "426e93eaaaf156437360dcef1d0045f3d6e813842e2986a127e400786cf4e2c3",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 67,
+          "amount": 1,
+          "id": "3123248fc8ed1f36f3d5fbc781b22495ffe0e0169cf2de74522f8a9c5a54b2e3",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 67.36,
+          "amount": 1,
+          "id": "696eb13a939c263c38653f154723bf180988402ba5ce429a3b12d11bbcb7b75b",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 68.44,
+          "amount": 1,
+          "id": "47bdd08a3f03e5bb46e66fa098c3f7d08baefddaba6adef7f4fa1b85f4c7c6ce",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 69.19,
+          "amount": 11,
+          "id": "45378efa54909a5f136902384b7442a5c0a713dbd5d91d553252c5d10ff7e380",
+          "name": "3P",
+          "volume": 0.9496199999999999,
+          "supported_weight": 750,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.85,
+          "length": 1.14,
+          "width": 0.98,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 158.48000000000002,
+          "amount": 1,
+          "id": "d900df4ec384314a142a8f418cf810bb6b24983a3741ff8ca4f9a1df256e059f",
+          "name": "CKD---HCT6",
+          "volume": 1.17464405,
+          "supported_weight": 100000,
+          "priority": 3,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.865,
+          "length": 1.186,
+          "width": 1.145,
+          "unlimited": false,
+          "type": "Package",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 336.21000000000004,
+          "amount": 1,
+          "id": "4be92a28ec2e09ac9cd6025653904dec93cbd07db6ad5b75cd89240f9bb6d947",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1163.79,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 326.90000000000003,
+          "amount": 2,
+          "id": "3c0acb624a5413c357bae6bcbe78a53d67518e5b0d3e3004426ad7df94e3aaa5",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1173.1,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 327.38,
+          "amount": 1,
+          "id": "ed2ed0484a7508e5c4a2a44b0fe4eda5922560603a8700e71e3ecb5c97496305",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1172.62,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 328.1,
+          "amount": 2,
+          "id": "17dccb88801a66dccd0ad328b268d7ac131a89cbcc46ea4f88097bd161bc37d6",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1171.9,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 327.86,
+          "amount": 1,
+          "id": "f922f87138881c487f572143fd01033f910a71f61f2b39eed7d562a550adc9f3",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1172.1399999999999,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 327.5,
+          "amount": 2,
+          "id": "66b0831dc3b16474a4c7860ba585d834d60e5853c131880bd269c14e029acb85",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1172.5,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 295.34,
+          "amount": 1,
+          "id": "762ac6c604479759ea2c7d7d97d5004591d25ef604081682c3f6ab32e5c87cb0",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1204.66,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 166.70000000000002,
+          "amount": 3,
+          "id": "b4e6fd1efcc81358f963ec27657729cbaa2ada6a2fff7fa7e0134be4b0d932ca",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1333.3,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 138.36,
+          "amount": 1,
+          "id": "634ecd89a44124e96f86aca162ae53e886c390f058191030d89a9ac507036670",
+          "name": "ECA---0021",
+          "volume": 1.2072,
+          "supported_weight": 1361.6399999999999,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.006,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 377,
+          "amount": 1,
+          "id": "a3d036adce6427253d045774f1986631515dd85fea4788f75518c1a0792cb0c3",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1123,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 200,
+          "amount": 3,
+          "id": "f5ed43c70f010e279b0a2db03aa94836b83496ad87ebd09514e1b5321395ab60",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1300,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 263.8,
+          "amount": 1,
+          "id": "f4e423f7e872113dbdf57ab0b36659c25dae2f30834efdc3eb62ce73bce66a2e",
+          "name": "ECA---0021",
+          "volume": 1.3104,
+          "supported_weight": 1236.2,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.092,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 106.11,
+          "amount": 1,
+          "id": "41e97b1d9c03f468bc684663121d146353caba81b3f943df72c3a1aafaa79218",
+          "name": "ECA---0021",
+          "volume": 0.9336,
+          "supported_weight": 1393.89,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.778,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 208.2,
+          "amount": 1,
+          "id": "f00bbfb5f0a0ab5346c4e6ecd746e0e50d9cc8db2644f260c4f5f39d1a4bdf7a",
+          "name": "ECA---0021",
+          "volume": 1.3104,
+          "supported_weight": 1291.8,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.092,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 93.8,
+          "amount": 1,
+          "id": "9136a1332ec50360cdd5fbde605505da523f1836994f3d339765328747df58ae",
+          "name": "ECA---0021",
+          "volume": 0.5568,
+          "supported_weight": 1406.2,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.464,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 230.35000000000002,
+          "amount": 1,
+          "id": "172b482c784bf4b2edc1979abae9f1d0cfb5266a7f4da40f83abe841763dc12b",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1269.65,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 559.96,
+          "amount": 1,
+          "id": "a431d11cbb992be8ebaa4712e65415533d396090b11c4f16e702ffb594f466b0",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 940.04,
+          "priority": 1,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 393,
+          "amount": 2,
+          "id": "bb5c8d236f7078c99ea8baaa728641899faf4925a6deb5793d1ee9ec876db31c",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1107,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 429.52,
+          "amount": 1,
+          "id": "4942bc934b4f0882f061a9445fcffd864fa1df4c9f8cedcb6aaa29b4b245f699",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1070.48,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 113,
+          "amount": 1,
+          "id": "060793034ea0f936efb17fc257955876242abec1a4f16c88f16c25531ffc6fbd",
+          "name": "ECA---0021",
+          "volume": 0.43679999999999997,
+          "supported_weight": 1387,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 0.364,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 241,
+          "amount": 13,
+          "id": "ffea3e301cb1451cd8db9ba44acade7f10714ff6d83363d506141f836b8c26a9",
+          "name": "ECA---0021",
+          "volume": 1.464,
+          "supported_weight": 1259,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.22,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        },
+        {
+          "weight": 233.32,
+          "amount": 1,
+          "id": "10a9289d51502b8fd7b537d6c76bbf0f27a682935201fb6ca62eab5c591a1790",
+          "name": "ECA---0021",
+          "volume": 1.476,
+          "supported_weight": 1266.68,
+          "priority": 2,
+          "rotations": [
+            "POS4",
+            "POS1"
+          ],
+          "height": 1.23,
+          "length": 1.2,
+          "width": 1,
+          "unlimited": false,
+          "type": "Pallet",
+          "current_rotation": "POS1"
+        }
+      ],
+      "restrictedToVehicles": []
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "682dde7605114200256f94da",
+      "name": "Semireboque Rebaixado | 5 Eixos",
+      "supported_weight": 41500,
+      "amount": 1,
+      "unlimited": true,
+      "cost": 0,
+      "containers": [
+        {
+          "id": "0",
+          "name": "Container 0",
+          "sequencia": 1,
+          "supported_weight": 10683.345,
+          "height": 2.6,
+          "length": 4,
+          "width": 2.5
+        },
+        {
+          "id": "1",
+          "name": "Container 1",
+          "sequencia": 2,
+          "supported_weight": 30816.655,
+          "height": 3,
+          "length": 10,
+          "width": 2.5
+        }
+      ]
+    },
+    {
+      "id": "682dde7705114200256f9502",
+      "name": "Caminhão | Truck",
+      "supported_weight": 23000,
+      "amount": 1,
+      "unlimited": false,
+      "cost": 0,
+      "containers": [
+        {
+          "id": "0",
+          "name": "Container 0",
+          "sequencia": 1,
+          "supported_weight": 23000,
+          "height": 2.7,
+          "length": 8.5,
+          "width": 2.5
+        }
+      ]
+    },
+    {
+      "id": "682dde7705114200256f94fd",
+      "name": "Caminhão | Toco",
+      "supported_weight": 16000,
+      "amount": 1,
+      "unlimited": false,
+      "cost": 0,
+      "containers": [
+        {
+          "id": "0",
+          "name": "Container 0",
+          "sequencia": 1,
+          "supported_weight": 16000,
+          "height": 2.4,
+          "length": 6.2,
+          "width": 2.5
+        }
+      ]
+    }
+  ],
+  "accessories": [],
+  "acceptDividedCollect": true,
+  "log_header": "INFO",
+  "first_criteria": "AMOUNT",
+  "second_criteria": "VOLUME",
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0
+}

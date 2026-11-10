@@ -1,0 +1,124 @@
+{
+  "gapWeight": 0,
+  "accessories": [],
+  "vehicles": [
+    {
+      "amount": 1,
+      "cost": 0,
+      "unlimited": false,
+      "name": "Caminhao | Truck",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Truck",
+          "length": 8.5,
+          "width": 2.5,
+          "id": "truck",
+          "supported_weight": 23000,
+          "height": 2.7
+        }
+      ],
+      "id": "truck",
+      "supported_weight": 23000
+    },
+    {
+      "amount": 1,
+      "cost": 0,
+      "unlimited": false,
+      "name": "Caminhao | Toco",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Toco",
+          "length": 6.2,
+          "width": 2.5,
+          "id": "toco",
+          "supported_weight": 16000,
+          "height": 2.4
+        }
+      ],
+      "id": "toco",
+      "supported_weight": 16000
+    },
+    {
+      "amount": 1,
+      "cost": 0,
+      "unlimited": true,
+      "name": "Semireboque Rebaixado | 5 Eixos",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "neck",
+          "length": 4,
+          "width": 2.5,
+          "id": "carreta-neck",
+          "supported_weight": 10683,
+          "height": 2.6
+        },
+        {
+          "sequencia": 2,
+          "name": "body",
+          "length": 10,
+          "width": 2.5,
+          "id": "carreta-body",
+          "supported_weight": 30816,
+          "height": 3
+        }
+      ],
+      "id": "carreta",
+      "supported_weight": 41500
+    }
+  ],
+  "acceptDividedCollect": true,
+  "reverse": false,
+  "log_header": "ISSUE-1813 mixed fleet partial load",
+  "sortByWeight": false,
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+  "gapVolume": 0,
+  "first_criteria": "AMOUNT",
+  "config": {
+    "minimum_required_supported_weight": 0,
+    "minimum_required_volume": 0,
+    "measures_for_transport_choice_heuristics": [
+      "SUPPORTED_WEIGHT",
+      "HEIGHT",
+      "LENGTH",
+      "WIDTH",
+      "WEIGHT"
+    ],
+    "enable_minimum_required_vehicles": true
+  },
+  "collects": [
+    {
+      "restrictedToVehicles": [],
+      "id": "priority_group",
+      "items": [],
+      "order": -1
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "non_priority_group",
+      "items": [
+        {
+          "area": 1,
+          "amount": 210,
+          "unlimited": false,
+          "length": 1,
+          "weight": 100,
+          "current_rotation": "POS1",
+          "supported_weight": 100000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 1,
+          "name": "box-1m3",
+          "width": 1,
+          "id": "box-1m3",
+          "rotations": ["POS1"],
+          "height": 1
+        }
+      ],
+      "order": 0
+    }
+  ],
+  "second_criteria": "VOLUME"
+}

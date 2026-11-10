@@ -1,0 +1,113 @@
+{
+  "gapWeight": 0,
+  "accessories": [],
+  "vehicles": [
+    {
+      "amount": 1,
+      "cost": 0,
+      "unlimited": true,
+      "name": "Toco",
+      "containers": [
+        {
+          "sequencia": 1,
+          "name": "Toco",
+          "length": 5,
+          "width": 2,
+          "id": "toco-body",
+          "supported_weight": 10000,
+          "height": 2
+        }
+      ],
+      "id": "t1",
+      "supported_weight": 10000
+    }
+  ],
+  "acceptDividedCollect": true,
+  "reverse": false,
+  "log_header": "ISSUE-1931-leftover-minors-two-transports",
+  "sortByWeight": false,
+  "espaco_entre_items_ao_usar_distribuicao_de_peso": 0,
+  "gapVolume": 0,
+  "first_criteria": "AMOUNT",
+  "config": {
+    "minimum_required_supported_weight": 0,
+    "minimum_required_volume": 0,
+    "measures_for_transport_choice_heuristics": [],
+    "enable_minimum_required_vehicles": false,
+    "single_waypoint_per_transport": false
+  },
+  "collects": [
+    {
+      "restrictedToVehicles": [],
+      "id": "large-waypoint",
+      "items": [
+        {
+          "area": 2,
+          "amount": 12,
+          "unlimited": false,
+          "length": 1,
+          "weight": 10,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 2,
+          "name": "LargeBox",
+          "width": 1,
+          "id": "large-item",
+          "rotations": ["POS1"],
+          "height": 2
+        }
+      ],
+      "order": 0
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "minor-waypoint-a",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 1,
+          "weight": 10,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 2,
+          "name": "MinorA",
+          "width": 1,
+          "id": "minor-a",
+          "rotations": ["POS1"],
+          "height": 2
+        }
+      ],
+      "order": 1
+    },
+    {
+      "restrictedToVehicles": [],
+      "id": "minor-waypoint-b",
+      "items": [
+        {
+          "area": 1,
+          "amount": 1,
+          "unlimited": false,
+          "length": 1,
+          "weight": 10,
+          "current_rotation": "POS1",
+          "supported_weight": 1000000,
+          "priority": 0,
+          "type": "Caixa",
+          "volume": 2,
+          "name": "MinorB",
+          "width": 1,
+          "id": "minor-b",
+          "rotations": ["POS1"],
+          "height": 2
+        }
+      ],
+      "order": 2
+    }
+  ]
+}

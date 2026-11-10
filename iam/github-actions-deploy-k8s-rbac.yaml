@@ -1,0 +1,26 @@
+# RBAC for GitHub Actions deploy role on eks-prod (namespace default).
+# AmazonEKSEditPolicy does not include keda.sh custom resources.
+# Apply once via scripts/ci_apply_deploy_iam.sh (requires cluster-admin kubeconfig).
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: github-actions-simplified-transport-selector-deploy
+  namespace: default
+rules:
+  - apiGroups: ["keda.sh"]
+    resources: ["scaledjobs"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: github-actions-simplified-transport-selector-deploy
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: github-actions-simplified-transport-selector-deploy
+subjects:
+  - kind: Group
+    name: github-actions-simplified-transport-selector-deploy
+    apiGroup: rbac.authorization.k8s.io
