@@ -6,6 +6,7 @@ const { build_aggregated_model } = require('./solver/build_aggregated_model')
 const { solve_lp } = require('./solver/highs_client')
 const { read_solution } = require('./solver/read_solution')
 const { pack_with_correction } = require('./pack/bin_pack_groups')
+const { rebind_empty_vehicle_slots } = require('./pack/rebind_empty_vehicle_slots')
 const { applies: scaler_applies, emitted_count } = require('./scale/single_type_fleet_scaler')
 const { format_response } = require('./format_response')
 
@@ -74,9 +75,25 @@ function build_chosen_fleet(request, solution)
         if (!packed)
             return null
         for (const bin of packed.bins)
-            chosen.push({ vehicle, groups: bin.length ? bin : groups })
+            chosen.push({ vehicle, groups: groups_for_bin(bin, groups) })
     }
-    return chosen
+    return rebind_empty_vehicle_slots(chosen, request.gaps)
+}
+
+/**
+ * Keeps non-empty bins; pads same-type min-capacity clones with a copy of the
+ * type's assigned groups; leaves truly empty type slots for later rebind.
+ * @param {object[]} bin packed groups for one clone
+ * @param {object[]} type_groups all groups assigned to this vehicle type
+ * @returns {object[]}
+ */
+function groups_for_bin(bin, type_groups)
+{
+    if (bin.length > 0)
+        return bin
+    if (type_groups.length > 0)
+        return [...type_groups]
+    return []
 }
 
 /**
