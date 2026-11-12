@@ -20,7 +20,9 @@
         "ecr:CompleteLayerUpload",
         "ecr:DescribeRepositories",
         "ecr:DescribeImages",
-        "ecr:ListImages"
+        "ecr:ListImages",
+        "ecr:GetLifecyclePolicy",
+        "ecr:PutLifecyclePolicy"
       ],
       "Resource": "arn:aws:ecr:us-east-1:329521032930:repository/simplified-transport-selector"
     },
