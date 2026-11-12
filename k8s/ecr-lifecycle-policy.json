@@ -1,0 +1,56 @@
+{
+  "rules": [
+    {
+      "rulePriority": 1,
+      "description": "Keep only the newest unique dev-<sha> image",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["dev-"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 1
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 2,
+      "description": "Keep only the newest unique stage-<sha> image",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["stage-"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 1
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 3,
+      "description": "Keep only the newest unique prod-<sha> image",
+      "selection": {
+        "tagStatus": "tagged",
+        "tagPrefixList": ["prod-"],
+        "countType": "imageCountMoreThan",
+        "countNumber": 1
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 10,
+      "description": "Expire untagged images after 1 day",
+      "selection": {
+        "tagStatus": "untagged",
+        "countType": "sinceImagePushed",
+        "countUnit": "days",
+        "countNumber": 1
+      },
+      "action": {
+        "type": "expire"
+      }
+    }
+  ]
+}

@@ -95,19 +95,21 @@ npm test
 
 Mirrors the old Java selector layout: ECR image + ClusterIP Service on port `8085`.
 
-| Branch | Deploy env | K8s suffix | Service DNS |
-|---|---|---|---|
-| `dev` | `dev` | `dev` | `simplified-transport-selector-dev:8085` |
-| `stage` | `stage` | `stage` | `simplified-transport-selector-stage:8085` |
-| `main` | `main` | `prod` | `simplified-transport-selector-prod:8085` |
+| Branch | Deploy env | Image tags | K8s suffix | Service DNS |
+|---|---|---|---|---|
+| `dev` | `dev` | `dev-<sha7>` (+ floating `dev`) | `dev` | `simplified-transport-selector-dev:8085` |
+| `stage` | `stage` | `stage-<sha7>` (+ floating `stage`) | `stage` | `simplified-transport-selector-stage:8085` |
+| `main` | `main` → prod | `prod-<sha7>` (+ floating `prod`) | `prod` | `simplified-transport-selector-prod:8085` |
 
-Image tags: `${env}-${short_sha}` plus floating `${env}` (K8s pulls the floating tag).
+K8s deploy applies the **unique** `env-<sha7>` tag (`imagePullPolicy: IfNotPresent`). Each commit changes the image reference so pods roll without Always-pull.
 
-Pipeline: `.github/workflows/ci.yml` (test → build → ECR → `kubectl apply` on `eks-prod`).
+ECR lifecycle (`k8s/ecr-lifecycle-policy.json`, applied by `scripts/ci_ensure_ecr_repository.sh`): keep **only the newest** tagged image per prefix `dev-` / `stage-` / `prod-`; expire untagged after 1 day.
+
+Pipeline: `.github/workflows/ci.yml` (test → build → ECR → `kubectl apply` + `rollout status` on `eks-prod`).
 
 One-time AWS setup (same pattern as `route-allocation-cache`):
 
-1. Create ECR repo `simplified-transport-selector` (or let CI create it).
+1. Create ECR repo `simplified-transport-selector` (or let CI create it; CI also applies the lifecycle policy).
 2. Create IAM role `github-actions-simplified-transport-selector-deploy` with OIDC to this repo and policies under `iam/`.
 3. Apply `iam/github-actions-deploy-k8s-rbac.yaml` on the cluster.
 4. Create GitHub Environments `dev`, `stage`, `main` with required reviewers if desired.

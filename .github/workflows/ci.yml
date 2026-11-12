@@ -82,13 +82,19 @@ jobs:
           ECR_URI: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_DEFAULT_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
         run: |
           short_sha="$(printf '%s' "${GITHUB_SHA}" | cut -c1-7)"
-          image_tag="${ENV}-${short_sha}"
-          docker build --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${ENV}" .
+          # Branch main deploys as prod; keep unique env-<sha> tags for k8s apply.
+          case "${ENV}" in
+            main) tag_env="prod" ;;
+            *) tag_env="${ENV}" ;;
+          esac
+          image_tag="${tag_env}-${short_sha}"
+          docker build --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${tag_env}" .
           chmod +x scripts/ci_image_smoke_test.sh
           IMAGE="${ECR_URI}:${image_tag}" scripts/ci_image_smoke_test.sh
           docker push "${ECR_URI}:${image_tag}"
-          docker push "${ECR_URI}:${ENV}"
+          docker push "${ECR_URI}:${tag_env}"
           echo "image_tag=${image_tag}" >> "$GITHUB_OUTPUT"
+
       - name: Configure kubeconfig and deploy
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
