@@ -25,4 +25,8 @@ for FILE in "${staging_dir}"/*; do
 done
 kubectl delete -f "${staging_dir}/" --ignore-not-found
 kubectl apply -f "${staging_dir}/"
-echo "Applied ${PROJECT_NAME}-${app_env} with image tag ${IMAGE_TAG}"
+deployment_name="${PROJECT_NAME}-${app_env}"
+# IMAGE_TAG is unique per commit (env-shortsha), so apply changes the image
+# reference and Kubernetes rolls new pods; status waits until they are ready.
+kubectl rollout status "deployment/${deployment_name}" --timeout=180s
+echo "Applied and rolled out ${deployment_name} with image tag ${IMAGE_TAG}"
