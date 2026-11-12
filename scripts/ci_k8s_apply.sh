@@ -25,4 +25,9 @@ for FILE in "${staging_dir}"/*; do
 done
 kubectl delete -f "${staging_dir}/" --ignore-not-found
 kubectl apply -f "${staging_dir}/"
-echo "Applied ${PROJECT_NAME}-${app_env} with image tag ${IMAGE_TAG}"
+deployment_name="${PROJECT_NAME}-${app_env}"
+# Mutable env tags (dev/stage/prod) can keep stale node cache under IfNotPresent;
+# restart forces new pods and status waits until the rollout is healthy.
+kubectl rollout restart "deployment/${deployment_name}"
+kubectl rollout status "deployment/${deployment_name}" --timeout=180s
+echo "Applied and rolled out ${deployment_name} with image tag ${IMAGE_TAG}"
