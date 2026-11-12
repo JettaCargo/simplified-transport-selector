@@ -20,7 +20,7 @@ spec:
       containers:
       - name: VAR_NAME-VAR_ENV
         image: 329521032930.dkr.ecr.us-east-1.amazonaws.com/VAR_NAME:VAR_VERSION
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: HOST
           value: "0.0.0.0"
