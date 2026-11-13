@@ -1,5 +1,6 @@
 import http from 'http'
 import { Logger } from '@jetta/logger'
+import { start_scaler_http_heartbeat } from '../heartbeat/start_scaler_http_heartbeat'
 import { error_response_from_unknown } from './error_response_from_unknown'
 import { route } from './route'
 import { send_json } from './send_json'
@@ -25,10 +26,11 @@ if (require.main === module)
 }
 
 /**
- * Starts the HTTP listener.
+ * Starts the heartbeat and listens.
  */
 function listen(): void
 {
+    start_scaler_http_heartbeat()
     server.listen(PORT, HOST, () =>
     {
         logger.log(`transport-selector listening on ${HOST}:${PORT}`)
