@@ -2,20 +2,36 @@
   "name": "simplified-transport-selector",
   "version": "0.1.0",
   "description": "Aggregated MILP transport selector for allocation-gateway (type-level counts, reselection bind feedback)",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "mocha 'test/src/**/*.test.js' --timeout 30000",
-    "start": "node src/server.js"
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src test/src --ext .ts",
+    "lint:fix": "eslint src test/src --fix",
+    "test": "tsc -p tsconfig.json && mocha 'test/src/**/*.test.js' --timeout 30000",
+    "ci:coverage": "c8 --all --include=build --reporter=text --reporter=text-summary --check-coverage --lines 80 --functions 80 --branches 80 --statements 80 npm test",
+    "start": "node build/server/server.js"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
-    "highs": "^1.15.4"
+    "@jetta/http": "^0.1.2",
+    "@jetta/logger": "^2.0.1",
+    "@jetta/number-compare": "^3.0.3",
+    "highs": "^1.15.4",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "chai": "^4.5.0",
-    "mocha": "^11.7.5"
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.19.2",
+    "@typescript-eslint/eslint-plugin": "^8.72.1",
+    "@typescript-eslint/parser": "^8.72.1",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "c8": "^12.0.0",
+    "chai": "^6.3.0",
+    "eslint": "^10.15.0",
+    "mocha": "^12.0.3",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
   },
   "repository": {
     "type": "git",
