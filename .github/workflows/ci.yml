@@ -16,23 +16,37 @@ env:
   ECR_REPOSITORY: simplified-transport-selector
   PROJECT_NAME: simplified-transport-selector
   AWS_DEPLOY_ROLE_ARN: arn:aws:iam::329521032930:role/github-actions-simplified-transport-selector-deploy
+  NODE_CI_IMAGE: 329521032930.dkr.ecr.us-east-1.amazonaws.com/node-ci:1.2.2
 
 permissions:
   contents: read
 
 jobs:
   verify:
-    name: Lint and test
+    name: Lint, audit, and test
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          node-version: "20"
-          cache: npm
-      - run: npm ci
-      - run: npm test
+          role-to-assume: ${{ env.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
+      - name: Login to Amazon ECR
+        run: |
+          chmod +x scripts/ci_docker_ecr_login.sh
+          scripts/ci_docker_ecr_login.sh
+      - name: Lint, audit, and test in node-ci
+        run: |
+          docker run --rm \
+            --volume "${GITHUB_WORKSPACE}:/opt/app" \
+            --workdir /opt/app \
+            "${NODE_CI_IMAGE}" \
+            bash -lc "npm ci && npm audit --audit-level=critical && npm run lint && npm run ci:coverage"
 
   resolve-env:
     name: Resolve deploy env
