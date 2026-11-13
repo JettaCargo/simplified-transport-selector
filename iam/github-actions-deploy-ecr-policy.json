@@ -25,6 +25,16 @@
       "Resource": "arn:aws:ecr:us-east-1:329521032930:repository/simplified-transport-selector"
     },
     {
+      "Sid": "EcrPullNodeCi",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage"
+      ],
+      "Resource": "arn:aws:ecr:us-east-1:329521032930:repository/node-ci"
+    },
+    {
       "Sid": "EcrCreateRepository",
       "Effect": "Allow",
       "Action": "ecr:CreateRepository",
