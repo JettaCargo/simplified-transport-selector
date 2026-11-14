@@ -1,9 +1,8 @@
 import { IncomingMessage, ServerResponse } from 'http'
-import { handle_transports_selection } from './handle_transports_selection'
+import { handle_transports_selection } from '../selection_endpoint/handle_transports_selection'
+import { is_health_path, write_health } from '../health/write_health'
 import { send_json } from './send_json'
-import { error_response_from_unknown } from './error_response_from_unknown'
-
-const HEALTH_BODY = 'MS of Transport Selector JettaCargo '
+import { error_response_from_unknown } from '../errors/error_response_from_unknown'
 
 /**
  * Routes health checks and transport selection.
@@ -13,9 +12,9 @@ const HEALTH_BODY = 'MS of Transport Selector JettaCargo '
 export async function route(request: IncomingMessage, response: ServerResponse): Promise<void>
 {
     const url = request.url || ''
-    if (request.method === 'GET' && is_health(url))
+    if (request.method === 'GET' && is_health_path(url))
     {
-        write_health(response)
+        write_health(url, response)
         return
     }
     if (request.method === 'POST' && is_selection(url))
@@ -29,29 +28,11 @@ export async function route(request: IncomingMessage, response: ServerResponse):
 
 /**
  * @param url request url
- * @returns whether the url is a health check
- */
-function is_health(url: string): boolean
-{
-    return url === '/' || url === '/livez' || url === '/readyz'
-}
-
-/**
- * @param url request url
  * @returns whether the url selects transports
  */
 function is_selection(url: string): boolean
 {
     return url === '/' || url === '/transports_selection'
-}
-
-/**
- * @param response response
- */
-function write_health(response: ServerResponse): void
-{
-    response.writeHead(200, { 'Content-Type': 'text/plain', Connection: 'close' })
-    response.end(HEALTH_BODY)
 }
 
 export { send_json, error_response_from_unknown }
