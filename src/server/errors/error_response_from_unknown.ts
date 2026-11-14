@@ -1,10 +1,11 @@
-import { Error_Envelope } from '../core/types/error_envelope'
-import { Message_Tuple } from '../core/types/message_tuple'
-import { error_response } from '../core/messages/error_response'
-import { TRANSPORT_SELECTOR_MESSAGE } from '../core/messages/transport_selector_message'
+import { Error_Envelope } from '../../core/messages/envelope/error_envelope'
+import { Message_Tuple } from '../../core/messages/envelope/message_tuple'
+import { error_response } from '../../core/messages/envelope/error_response'
+import { TRANSPORT_SELECTOR_MESSAGE } from '../../core/messages/catalog/transport_selector_message'
 
 /**
- * Maps a thrown error to the catalog envelope.
+ * Maps a thrown error to the catalog envelope. Errors outside the catalog
+ * become the internal-error key with no parameters, so raw text never reaches the wire.
  * @param error thrown value
  * @returns error envelope
  */
@@ -14,8 +15,7 @@ export function error_response_from_unknown(error: unknown): Error_Envelope
     {
         return error_response(error.message_entry[0], error.message_entry.slice(1))
     }
-    const detail = error instanceof Error ? error.message : String(error)
-    return error_response(TRANSPORT_SELECTOR_MESSAGE.ITEMS_DONT_FIT, [detail])
+    return error_response(TRANSPORT_SELECTOR_MESSAGE.INTERNAL_ERROR)
 }
 
 /**

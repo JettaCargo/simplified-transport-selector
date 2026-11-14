@@ -1,6 +1,6 @@
 const { expect } = require('chai')
-const { NoVehicleForGroupException } = require('../../../../build/core/solver/No_Vehicle_For_Group_Exception')
-const { TRANSPORT_SELECTOR_MESSAGE } = require('../../../../build/core/messages/transport_selector_message')
+const { NoVehicleForGroupException } = require('../../../../../build/core/solver/errors/No_Vehicle_For_Group_Exception')
+const { TRANSPORT_SELECTOR_MESSAGE } = require('../../../../../build/core/messages/catalog/transport_selector_message')
 
 describe('NoVehicleForGroupException', function ()
 {

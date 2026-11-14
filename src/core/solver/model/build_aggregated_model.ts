@@ -1,20 +1,23 @@
-import { Selector_Request } from '../types/selector_request'
-import { add_capacity_rows } from './add_capacity_rows'
-import { add_feedback_cuts } from './add_feedback_cuts'
-import { add_group_assignment } from './add_group_assignment'
-import { add_minimum_required } from './add_minimum_required'
-import { add_vehicle_counts } from './add_vehicle_counts'
+import { Selector_Request } from '../../input/request/selector_request'
+import { add_capacity_rows } from '../constraints/add_capacity_rows'
+import { add_feedback_cuts } from '../constraints/add_feedback_cuts'
+import { add_group_assignment } from '../constraints/add_group_assignment'
+import { add_minimum_required } from '../constraints/add_minimum_required'
+import { add_packing_cuts } from '../constraints/add_packing_cuts'
+import { Packing_Cut } from '../constraints/packing_cut'
+import { add_vehicle_counts } from '../constraints/add_vehicle_counts'
 import { Aggregated_Model } from './aggregated_model'
 import { Model_Context } from './model_context'
-import { rank_vehicle_costs } from './rank_vehicle_costs'
+import { rank_vehicle_costs } from '../objective/rank_vehicle_costs'
 import { render_lp } from './render_lp'
 
 /**
  * Builds a type-level MILP in LP format.
  * @param request parsed request
+ * @param packing_cuts unpackable assignments to forbid
  * @returns LP model
  */
-export function build_aggregated_model(request: Selector_Request): Aggregated_Model
+export function build_aggregated_model(request: Selector_Request, packing_cuts: Packing_Cut[] = []): Aggregated_Model
 {
     const context = empty_context(request)
     const ranked_cost = rank_vehicle_costs(request.vehicles)
@@ -33,6 +36,7 @@ export function build_aggregated_model(request: Selector_Request): Aggregated_Mo
         count_keys: context.count_keys,
     })
     add_feedback_cuts(context.constraints, request)
+    add_packing_cuts(context.constraints, packing_cuts)
     return { ...context, lp: render_lp(context) }
 }
 
