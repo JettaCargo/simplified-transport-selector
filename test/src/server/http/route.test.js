@@ -1,7 +1,8 @@
 const { expect } = require('chai')
-const { server } = require('../../../build/server/server')
-const { TRANSPORT_SELECTOR_MESSAGE } = require('../../../build/core/messages/transport_selector_message')
-const { send_request, with_listening_server } = require('../../helpers/http_client')
+const { server } = require('../../../../build/server/http/server')
+const { TRANSPORT_SELECTOR_MESSAGE } = require('../../../../build/core/messages/catalog/transport_selector_message')
+const { send_request, with_listening_server } = require('../../../helpers/http_client')
+const { use_env } = require('../../../helpers/scaler_fixtures')
 
 const HEALTH_BODY = 'MS of Transport Selector JettaCargo '
 const HEALTH_PATHS = ['/', '/livez', '/readyz']
@@ -52,5 +53,25 @@ describe('HTTP routing', function ()
             expect(body.apiError).to.equal(TRANSPORT_SELECTOR_MESSAGE.INVALID_JSON)
             expect(body.messages.errors).to.deep.equal([[TRANSPORT_SELECTOR_MESSAGE.INVALID_JSON]])
         })
+    })
+
+    it('returns the payload-too-large catalog error with status 200 for a body above MAX_BODY_BYTES', async function ()
+    {
+        const restore = use_env({ MAX_BODY_BYTES: '16' })
+        try
+        {
+            await with_listening_server(server, async port =>
+            {
+                const response = await send_request(port, { method: 'POST', path: '/', body: JSON.stringify({ padding: 'x'.repeat(64) }) })
+                const body = JSON.parse(response.body)
+                expect(response.status).to.equal(200)
+                expect(body.apiError).to.equal(TRANSPORT_SELECTOR_MESSAGE.PAYLOAD_TOO_LARGE)
+                expect(body.messages.errors).to.deep.equal([[TRANSPORT_SELECTOR_MESSAGE.PAYLOAD_TOO_LARGE, '16']])
+            })
+        }
+        finally
+        {
+            restore()
+        }
     })
 })
