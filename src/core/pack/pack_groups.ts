@@ -1,9 +1,9 @@
 import { cp, DEFAULT_EPSILON, le } from '@jetta/number-compare'
-import { supported_weight_with_gap } from '../scale/supported_weight_with_gap'
-import { volume_with_gap } from '../scale/volume_with_gap'
-import { Capacity_Gaps } from '../types/capacity_gaps'
-import { Collect_Group } from '../types/collect_group'
-import { Parsed_Vehicle } from '../types/parsed_vehicle'
+import { supported_weight_with_gap } from '../scale/capacity/supported_weight_with_gap'
+import { volume_with_gap } from '../scale/capacity/volume_with_gap'
+import { Capacity_Gaps } from '../scale/capacity/capacity_gaps'
+import { Collect_Group } from '../input/group/collect_group'
+import { Parsed_Vehicle } from '../input/vehicle/parsed_vehicle'
 
 interface Packed_Bin
 {

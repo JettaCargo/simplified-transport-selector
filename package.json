@@ -9,7 +9,7 @@
     "lint:fix": "eslint src test/src --fix",
     "test": "tsc -p tsconfig.json && mocha 'test/src/**/*.test.js' --timeout 30000",
     "ci:coverage": "c8 --all --include=build --reporter=text --reporter=text-summary --check-coverage --lines 80 --functions 80 --branches 80 --statements 80 npm test",
-    "start": "node build/server/server.js"
+    "start": "node build/server/http/server.js"
   },
   "engines": {
     "node": ">=20"

@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { select_transports } = require('../../build/index')
 
-const FIXTURE_DIR = path.join(__dirname, '../data/from_payload')
+const FIXTURE_DIR = path.join(__dirname, '../data/src/core/selection/flow/from_payload')
 
 /**
  * Loads a from_payload fixture and runs the selector.
