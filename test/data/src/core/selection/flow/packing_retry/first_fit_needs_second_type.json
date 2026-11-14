@@ -1,0 +1,38 @@
+{
+  "gapWeight": 0,
+  "gapVolume": 0,
+  "accessories": [],
+  "acceptDividedCollect": false,
+  "config": {
+    "enable_minimum_required_vehicles": false,
+    "minimum_required_volume": 0,
+    "minimum_required_supported_weight": 0
+  },
+  "vehicles": [
+    {
+      "id": "small_truck",
+      "name": "Small truck",
+      "amount": 2,
+      "unlimited": false,
+      "cost": 1,
+      "supported_weight": 10,
+      "containers": [{ "id": "small_body", "name": "Small body", "supported_weight": 10, "length": 10, "width": 10, "height": 10 }]
+    },
+    {
+      "id": "large_truck",
+      "name": "Large truck",
+      "amount": 1,
+      "unlimited": false,
+      "cost": 100,
+      "supported_weight": 12,
+      "containers": [{ "id": "large_body", "name": "Large body", "supported_weight": 12, "length": 10, "width": 10, "height": 10 }]
+    }
+  ],
+  "collects": [
+    { "id": "collect_1", "restrictedToVehicles": [], "items": [{ "id": "1", "name": "Box", "amount": 1, "weight": 4, "volume": 1, "length": 1, "width": 1, "height": 1, "rotations": ["POS1"], "current_rotation": "POS1" }] },
+    { "id": "collect_2", "restrictedToVehicles": [], "items": [{ "id": "2", "name": "Box", "amount": 1, "weight": 4, "volume": 1, "length": 1, "width": 1, "height": 1, "rotations": ["POS1"], "current_rotation": "POS1" }] },
+    { "id": "collect_3", "restrictedToVehicles": [], "items": [{ "id": "3", "name": "Box", "amount": 1, "weight": 4, "volume": 1, "length": 1, "width": 1, "height": 1, "rotations": ["POS1"], "current_rotation": "POS1" }] },
+    { "id": "collect_4", "restrictedToVehicles": [], "items": [{ "id": "4", "name": "Box", "amount": 1, "weight": 4, "volume": 1, "length": 1, "width": 1, "height": 1, "rotations": ["POS1"], "current_rotation": "POS1" }] },
+    { "id": "collect_5", "restrictedToVehicles": [], "items": [{ "id": "5", "name": "Box", "amount": 1, "weight": 4, "volume": 1, "length": 1, "width": 1, "height": 1, "rotations": ["POS1"], "current_rotation": "POS1" }] }
+  ]
+}

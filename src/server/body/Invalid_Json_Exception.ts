@@ -1,5 +1,5 @@
-import { Message_Tuple } from '../core/types/message_tuple'
-import { TRANSPORT_SELECTOR_MESSAGE } from '../core/messages/transport_selector_message'
+import { Message_Tuple } from '../../core/messages/envelope/message_tuple'
+import { TRANSPORT_SELECTOR_MESSAGE } from '../../core/messages/catalog/transport_selector_message'
 
 /**
  * Request body was not valid JSON.

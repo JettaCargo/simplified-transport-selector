@@ -1,5 +1,5 @@
-import { Message_Tuple } from '../types/message_tuple'
-import { TRANSPORT_SELECTOR_MESSAGE } from '../messages/transport_selector_message'
+import { Message_Tuple } from '../../messages/envelope/message_tuple'
+import { TRANSPORT_SELECTOR_MESSAGE } from '../../messages/catalog/transport_selector_message'
 
 /**
  * A group has no feasible vehicle type while the model is built.
