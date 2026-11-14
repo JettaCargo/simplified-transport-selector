@@ -6,5 +6,6 @@ import { Highs_Column } from './highs_column'
 export interface Highs_Result
 {
     Status: string
+    ObjectiveValue?: number
     Columns?: Record<string, Highs_Column>
 }
