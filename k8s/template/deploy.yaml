@@ -7,6 +7,11 @@ metadata:
   name: VAR_NAME-VAR_ENV
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   selector:
     matchLabels:
       app: VAR_NAME
@@ -17,6 +22,8 @@ spec:
         app: VAR_NAME
         env: VAR_ENV
     spec:
+      # preStop sleep (10 s) + SHUTDOWN_GRACE_MILLISECONDS (65 s) must fit inside this window.
+      terminationGracePeriodSeconds: 90
       containers:
       - name: VAR_NAME-VAR_ENV
         image: 329521032930.dkr.ecr.us-east-1.amazonaws.com/VAR_NAME:VAR_VERSION
@@ -28,20 +35,37 @@ spec:
           value: "8085"
         - name: LOG_LEVEL
           value: "INFO"
+        - name: ENV
+          value: "VAR_ENV"
+        - name: SOLVER_POOL_SIZE
+          value: "2"
+        - name: SOLVER_QUEUE_LIMIT
+          value: "4"
+        - name: SOLVER_TIME_LIMIT_SECONDS
+          value: "60"
+        - name: SOLVER_WORKER_MAX_OLD_GENERATION_MB
+          value: "256"
+        - name: SHUTDOWN_GRACE_MILLISECONDS
+          value: "65000"
+        # Two solver workers (256 MiB heap each) plus the main thread.
         resources:
           requests:
-            memory: "256Mi"
-            cpu: "100m"
-          limits:
-            memory: "512Mi"
+            memory: "768Mi"
             cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "2000m"
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sleep", "10"]
         ports:
         - containerPort: 8085
           protocol: TCP
         livenessProbe:
           failureThreshold: 3
           httpGet:
-            path: /
+            path: /livez
             port: 8085
             scheme: HTTP
           periodSeconds: 10
@@ -51,7 +75,7 @@ spec:
         readinessProbe:
           failureThreshold: 3
           httpGet:
-            path: /
+            path: /readyz
             port: 8085
             scheme: HTTP
           periodSeconds: 5
