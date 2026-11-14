@@ -39,4 +39,4 @@ EXPOSE 8085
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
   CMD node -e "require('http').get('http://127.0.0.1:8085/',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"
 
-CMD ["node", "build/server/server.js"]
+CMD ["node", "build/server/http/server.js"]

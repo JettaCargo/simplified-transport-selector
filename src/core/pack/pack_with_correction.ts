@@ -1,6 +1,6 @@
-import { Capacity_Gaps } from '../types/capacity_gaps'
-import { Collect_Group } from '../types/collect_group'
-import { Parsed_Vehicle } from '../types/parsed_vehicle'
+import { Capacity_Gaps } from '../scale/capacity/capacity_gaps'
+import { Collect_Group } from '../input/group/collect_group'
+import { Parsed_Vehicle } from '../input/vehicle/parsed_vehicle'
 import { pack_groups } from './pack_groups'
 
 /**
