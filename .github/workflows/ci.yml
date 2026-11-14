@@ -90,6 +90,7 @@ jobs:
           chmod +x scripts/ci_docker_ecr_login.sh
           scripts/ci_docker_ecr_login.sh
       - name: Build, smoke test, and push image
+        id: image
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
           ECR_URI: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_DEFAULT_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
@@ -101,10 +102,11 @@ jobs:
           IMAGE="${ECR_URI}:${ENV}" scripts/ci_image_smoke_test.sh
           docker push "${ECR_URI}:${image_tag}"
           docker push "${ECR_URI}:${ENV}"
+          echo "tag=${image_tag}" >> "${GITHUB_OUTPUT}"
       - name: Configure kubeconfig and deploy
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
-          IMAGE_TAG: ${{ needs.resolve-env.outputs.env_name }}
+          IMAGE_TAG: ${{ steps.image.outputs.tag }}
           CLUSTER_NAME: prod
           PROJECT_NAME: simplified-transport-selector
         run: |

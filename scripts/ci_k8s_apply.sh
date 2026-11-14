@@ -23,6 +23,6 @@ for FILE in "${staging_dir}"/*; do
   sed -i "s/VAR_NODEPOOL/${NODEPOOL}/g" "${FILE}"
   sed -i "s|VAR_CAPACITY_LINE|${CAPACITY_LINE}|g" "${FILE}"
 done
-kubectl delete -f "${staging_dir}/" --ignore-not-found
 kubectl apply -f "${staging_dir}/"
+kubectl rollout status "deployment/${PROJECT_NAME}-${app_env}" --timeout=300s
 echo "Applied ${PROJECT_NAME}-${app_env} with image tag ${IMAGE_TAG}"
