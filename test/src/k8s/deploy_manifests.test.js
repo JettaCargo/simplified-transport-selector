@@ -46,7 +46,9 @@ describe('k8s deploy manifests', function ()
     {
         expect(read_repository_file('k8s/template/hpa.yaml')).to.match(/minReplicas: 2/)
         expect(fs.readdirSync(TEMPLATE_DIR)).to.include('pdb.yaml')
-        expect(read_repository_file('k8s/template/pdb.yaml')).to.match(/kind: PodDisruptionBudget[\s\S]*?minAvailable: 1/)
+        const pdb = read_repository_file('k8s/template/pdb.yaml')
+        expect(pdb).to.match(/kind: PodDisruptionBudget[\s\S]*?VAR_BUDGET_LINE/)
+        expect(pdb).not.to.include('minAvailable')
     })
 
     it('applies in place and waits for the rollout instead of deleting resources', function ()
