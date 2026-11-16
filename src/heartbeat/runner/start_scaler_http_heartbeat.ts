@@ -14,7 +14,7 @@ export function start_scaler_http_heartbeat(options: { interval_milliseconds?: n
 {
     if (!should_enable_scaler_heartbeat(process.env.ENV))
     {
-        logger.log('Heartbeat not activated because ENV is not dev or stage')
+        logger.log('Heartbeat not activated because ENV is not dev')
         return { stop: stop_inactive_heartbeat }
     }
     const interval_milliseconds = options.interval_milliseconds || DEFAULT_INTERVAL_MILLISECONDS
