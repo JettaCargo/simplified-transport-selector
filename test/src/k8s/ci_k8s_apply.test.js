@@ -15,11 +15,12 @@ const FAKE_KUBECTL_SCRIPT = [
 ].join('\n')
 
 /**
- * Runs the CI apply script for one deploy env with a stub kubectl and returns the rendered PDB.
+ * Runs the CI apply script for one deploy env with a stub kubectl and returns a rendered manifest.
  * @param {string} deploy_env value of ENV (dev, stage or main)
- * @returns {string} rendered pdb.yaml contents
+ * @param {string} file_name manifest file name inside k8s/template
+ * @returns {string} rendered manifest contents
  */
-function render_pdb_for_env(deploy_env)
+function render_manifest_for_env(deploy_env, file_name)
 {
     const work_dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ci-k8s-apply-'))
     const capture_dir = path.join(work_dir, 'capture')
@@ -41,9 +42,18 @@ function render_pdb_for_env(deploy_env)
         fs.rmSync(work_dir, { recursive: true, force: true })
         throw new Error(`ci_k8s_apply.sh failed for ENV=${deploy_env}: ${result.stderr}`)
     }
-    const rendered = fs.readFileSync(path.join(capture_dir, PDB_FILE_NAME), 'utf8')
+    const rendered = fs.readFileSync(path.join(capture_dir, file_name), 'utf8')
     fs.rmSync(work_dir, { recursive: true, force: true })
     return rendered
+}
+
+/**
+ * @param {string} deploy_env value of ENV (dev, stage or main)
+ * @returns {string} rendered pdb.yaml contents
+ */
+function render_pdb_for_env(deploy_env)
+{
+    return render_manifest_for_env(deploy_env, PDB_FILE_NAME)
 }
 
 describe('ci_k8s_apply.sh PodDisruptionBudget per environment', function ()
@@ -62,6 +72,24 @@ describe('ci_k8s_apply.sh PodDisruptionBudget per environment', function ()
             const rendered = render_pdb_for_env(deploy_env)
             expect(rendered).to.match(/^  maxUnavailable: 1$/m)
             expect(rendered).not.to.include('minAvailable')
+        }
+    })
+})
+
+describe('ci_k8s_apply.sh replica count per environment', function ()
+{
+    it('renders one replica in dev for the deployment and the autoscaler minimum', function ()
+    {
+        expect(render_manifest_for_env('dev', 'deploy.yaml')).to.match(/^  replicas: 1$/m)
+        expect(render_manifest_for_env('dev', 'hpa.yaml')).to.match(/^  minReplicas: 1$/m)
+    })
+
+    it('renders two replicas for stage and prod in the deployment and the autoscaler minimum', function ()
+    {
+        for (const deploy_env of ['stage', 'main'])
+        {
+            expect(render_manifest_for_env(deploy_env, 'deploy.yaml')).to.match(/^  replicas: 2$/m)
+            expect(render_manifest_for_env(deploy_env, 'hpa.yaml')).to.match(/^  minReplicas: 2$/m)
         }
     })
 })
