@@ -26,19 +26,19 @@ function empty_directory()
 
 describe('ci npmrc', function ()
 {
-    it('writes the registry auth line from NPM_PUBLISH_TOKEN', function ()
+    it('writes the registry auth line from NPM_TOKEN', function ()
     {
         const directory = empty_directory()
         execFileSync(WRITE_NPMRC, {
             cwd: directory,
-            env: { PATH: process.env.PATH, NPM_PUBLISH_TOKEN: 'test-token-value' }
+            env: { PATH: process.env.PATH, NPM_TOKEN: 'test-token-value' }
         })
         const npmrc = fs.readFileSync(path.join(directory, '.npmrc'), 'utf8')
         expect(npmrc).to.equal('//registry.npmjs.org/:_authToken=test-token-value\n')
         fs.rmSync(directory, { recursive: true })
     })
 
-    it('refuses to write npmrc when NPM_PUBLISH_TOKEN is missing', function ()
+    it('refuses to write npmrc when NPM_TOKEN is missing', function ()
     {
         const directory = empty_directory()
         expect(function ()
@@ -58,7 +58,7 @@ describe('ci npmrc', function ()
         const workflow = read_repository_file('.github/workflows/ci.yml')
         const script_at = workflow.indexOf('scripts/ci_write_npmrc.sh')
         const install_at = workflow.indexOf('npm ci && npm audit')
-        expect(workflow).to.include('NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}')
+        expect(workflow).to.include('NPM_TOKEN: ${{ secrets.NPM_TOKEN }}')
         expect(script_at).to.be.greaterThan(-1)
         expect(script_at).to.be.lessThan(install_at)
         expect(workflow).to.include('--secret id=npmrc,src=.npmrc')
