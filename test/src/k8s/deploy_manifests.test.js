@@ -44,7 +44,9 @@ describe('k8s deploy manifests', function ()
 
     it('keeps two replicas available through voluntary disruptions', function ()
     {
-        expect(read_repository_file('k8s/template/hpa.yaml')).to.match(/minReplicas: 2/)
+        expect(read_repository_file('k8s/template/hpa.yaml')).to.match(/minReplicas: VAR_REPLICA_COUNT/)
+        const apply_script = read_repository_file('scripts/ci_k8s_apply.sh')
+        expect(apply_script).to.match(/BUDGET_LINE="maxUnavailable: 1"\n  REPLICA_COUNT=2/)
         expect(fs.readdirSync(TEMPLATE_DIR)).to.include('pdb.yaml')
         const pdb = read_repository_file('k8s/template/pdb.yaml')
         expect(pdb).to.match(/kind: PodDisruptionBudget[\s\S]*?VAR_BUDGET_LINE/)
