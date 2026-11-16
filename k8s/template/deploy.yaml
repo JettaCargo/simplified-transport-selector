@@ -50,7 +50,7 @@ spec:
         # Two solver workers (256 MiB heap each) plus the main thread.
         resources:
           requests:
-            memory: "512Mi"
+            memory: "256Mi"
             cpu: "100m"
           limits:
             memory: "512Mi"
