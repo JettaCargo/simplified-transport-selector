@@ -5,6 +5,7 @@ import { Solver_Solution } from '../../solver/highs/read_solution'
 import { group_by_assignment } from './group_by_assignment'
 import { pack_vehicle_types } from './pack_vehicle_types'
 import { scale_single_limited_type } from '../single_limited/scale_single_limited_type'
+import { rebind_empty_vehicle_slots } from './rebind_empty_vehicle_slots'
 
 /**
  * Materializes vehicle clones from counts and assignments.
@@ -23,5 +24,10 @@ export function build_chosen_fleet(request: Selector_Request, solution: Solver_S
     {
         return scale_single_limited_type(request, solution)
     }
-    return pack_vehicle_types(request, solution, by_type)
+    const packed = pack_vehicle_types(request, solution, by_type)
+    if (!packed)
+    {
+        return undefined
+    }
+    return rebind_empty_vehicle_slots(packed, request.gaps)
 }
