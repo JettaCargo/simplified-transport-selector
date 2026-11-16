@@ -6,6 +6,7 @@ WORKDIR /opt/app
 
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm \
+    --mount=type=secret,id=npmrc,target=/opt/app/.npmrc \
     npm ci --omit=dev --no-audit --no-fund
 
 FROM node:24.3.0-bookworm-slim AS build
@@ -14,6 +15,7 @@ WORKDIR /opt/app
 
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm \
+    --mount=type=secret,id=npmrc,target=/opt/app/.npmrc \
     npm ci --no-audit --no-fund
 
 COPY tsconfig.json ./

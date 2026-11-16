@@ -41,7 +41,11 @@ jobs:
           chmod +x scripts/ci_docker_ecr_login.sh
           scripts/ci_docker_ecr_login.sh
       - name: Lint, audit, and test in node-ci
+        env:
+          NPM_PUBLISH_TOCKEN: ${{ secrets.NPM_PUBLISH_TOCKEN }}
         run: |
+          chmod +x scripts/ci_write_npmrc.sh
+          scripts/ci_write_npmrc.sh
           docker run --rm \
             --volume "${GITHUB_WORKSPACE}:/opt/app" \
             --workdir /opt/app \
@@ -94,12 +98,14 @@ jobs:
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
           ECR_URI: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_DEFAULT_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
+          NPM_PUBLISH_TOCKEN: ${{ secrets.NPM_PUBLISH_TOCKEN }}
         run: |
-          chmod +x scripts/ci_image_tags.sh
+          chmod +x scripts/ci_image_tags.sh scripts/ci_write_npmrc.sh
+          scripts/ci_write_npmrc.sh
           mapfile -t image_names < <(scripts/ci_image_tags.sh)
           tag_env="${image_names[0]}"
           image_tag="${image_names[1]}"
-          docker build --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${tag_env}" .
+          docker build --secret id=npmrc,src=.npmrc --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${tag_env}" .
           chmod +x scripts/ci_image_smoke_test.sh
           IMAGE="${ECR_URI}:${image_tag}" scripts/ci_image_smoke_test.sh
           docker push "${ECR_URI}:${image_tag}"
