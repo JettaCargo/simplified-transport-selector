@@ -50,11 +50,11 @@ spec:
         # Two solver workers (256 MiB heap each) plus the main thread.
         resources:
           requests:
-            memory: "768Mi"
-            cpu: "500m"
+            memory: "512Mi"
+            cpu: "100m"
           limits:
-            memory: "1Gi"
-            cpu: "2000m"
+            memory: "512Mi"
+            cpu: "500m"
         lifecycle:
           preStop:
             exec:
