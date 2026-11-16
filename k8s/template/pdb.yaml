@@ -6,7 +6,7 @@ metadata:
     app: VAR_NAME
     env: VAR_ENV
 spec:
-  minAvailable: 1
+  VAR_BUDGET_LINE
   selector:
     matchLabels:
       app: VAR_NAME
