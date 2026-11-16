@@ -16,23 +16,41 @@ env:
   ECR_REPOSITORY: simplified-transport-selector
   PROJECT_NAME: simplified-transport-selector
   AWS_DEPLOY_ROLE_ARN: arn:aws:iam::329521032930:role/github-actions-simplified-transport-selector-deploy
+  NODE_CI_IMAGE: 329521032930.dkr.ecr.us-east-1.amazonaws.com/node-ci:1.2.2
 
 permissions:
   contents: read
 
 jobs:
   verify:
-    name: Lint and test
+    name: Lint, audit, and test
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          node-version: "20"
-          cache: npm
-      - run: npm ci
-      - run: npm test
+          role-to-assume: ${{ env.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
+      - name: Login to Amazon ECR
+        run: |
+          chmod +x scripts/ci_docker_ecr_login.sh
+          scripts/ci_docker_ecr_login.sh
+      - name: Lint, audit, and test in node-ci
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          chmod +x scripts/ci_write_npmrc.sh
+          scripts/ci_write_npmrc.sh
+          docker run --rm \
+            --volume "${GITHUB_WORKSPACE}:/opt/app" \
+            --workdir /opt/app \
+            "${NODE_CI_IMAGE}" \
+            bash -lc "npm ci && npm audit --audit-level=critical && npm run lint && npm run ci:coverage"
 
   resolve-env:
     name: Resolve deploy env
@@ -76,21 +94,27 @@ jobs:
           chmod +x scripts/ci_docker_ecr_login.sh
           scripts/ci_docker_ecr_login.sh
       - name: Build, smoke test, and push image
+        id: image
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
           ECR_URI: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_DEFAULT_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          short_sha="$(printf '%s' "${GITHUB_SHA}" | cut -c1-7)"
-          image_tag="${ENV}-${short_sha}"
-          docker build --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${ENV}" .
+          chmod +x scripts/ci_image_tags.sh scripts/ci_write_npmrc.sh
+          scripts/ci_write_npmrc.sh
+          mapfile -t image_names < <(scripts/ci_image_tags.sh)
+          tag_env="${image_names[0]}"
+          image_tag="${image_names[1]}"
+          docker build --secret id=npmrc,src=.npmrc --file container/Dockerfile --tag "${ECR_URI}:${image_tag}" --tag "${ECR_URI}:${tag_env}" .
           chmod +x scripts/ci_image_smoke_test.sh
-          IMAGE="${ECR_URI}:${ENV}" scripts/ci_image_smoke_test.sh
+          IMAGE="${ECR_URI}:${image_tag}" scripts/ci_image_smoke_test.sh
           docker push "${ECR_URI}:${image_tag}"
-          docker push "${ECR_URI}:${ENV}"
+          docker push "${ECR_URI}:${tag_env}"
+          echo "tag=${image_tag}" >> "${GITHUB_OUTPUT}"
       - name: Configure kubeconfig and deploy
         env:
           ENV: ${{ needs.resolve-env.outputs.env_name }}
-          IMAGE_TAG: ${{ needs.resolve-env.outputs.env_name }}
+          IMAGE_TAG: ${{ steps.image.outputs.tag }}
           CLUSTER_NAME: prod
           PROJECT_NAME: simplified-transport-selector
         run: |

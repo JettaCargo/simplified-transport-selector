@@ -1,0 +1,13 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: VAR_NAME-VAR_ENV
+  labels:
+    app: VAR_NAME
+    env: VAR_ENV
+spec:
+  VAR_BUDGET_LINE
+  selector:
+    matchLabels:
+      app: VAR_NAME
+      env: VAR_ENV
