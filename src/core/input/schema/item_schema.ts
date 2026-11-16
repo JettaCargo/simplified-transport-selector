@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { ROTATION_VALUES } from './selector_input_vocabulary'
+import { number_schema } from './number/number_schema'
 import { read_priority } from '../request/read_priority'
 
 /**
@@ -8,16 +9,16 @@ import { read_priority } from '../request/read_priority'
 export const item_schema = z.looseObject({
     id: z.string(),
     name: z.string(),
-    weight: z.number(),
-    amount: z.number().int(),
-    width: z.number(),
-    length: z.number(),
-    height: z.number(),
+    weight: number_schema(z.number()),
+    amount: number_schema(z.number().int()),
+    width: number_schema(z.number()),
+    length: number_schema(z.number()),
+    height: number_schema(z.number()),
     current_rotation: z.enum(ROTATION_VALUES),
     rotations: z.array(z.enum(ROTATION_VALUES)),
-    supported_weight: z.number().default(0),
+    supported_weight: number_schema(z.number().default(0)),
     priority: z.preprocess(read_priority, z.boolean()),
     type: z.string().default(''),
     unlimited: z.boolean().default(false),
-    volume: z.number().optional(),
+    volume: number_schema(z.number().optional()),
 })

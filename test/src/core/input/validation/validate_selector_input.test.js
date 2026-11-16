@@ -76,6 +76,53 @@ describe('validate selector input', function ()
         }
     })
 
+    it('reads numeric strings for gap volume and item weight', function ()
+    {
+        const payload = valid_payload()
+        payload.gapVolume = '0'
+        payload.collects[0].items[0].weight = '203.94'
+        const request = parse_request(payload)
+        const item = request.groups[0].items[0]
+        expect(request.gaps.volume).to.equal(0)
+        expect(item.weight).to.equal(203.94)
+    })
+
+    it('rejects a non-numeric gap volume as an invalid field', function ()
+    {
+        const payload = valid_payload()
+        payload.gapVolume = 'nope'
+        expect(() => parse_request(payload)).to.throw(SelectorInputException)
+        try
+        {
+            parse_request(payload)
+        }
+        catch (error)
+        {
+            expect(error.message).to.equal(TRANSPORT_SELECTOR_MESSAGE.INVALID_FIELD)
+            expect(error.message_entry[1]).to.match(/gapVolume/)
+        }
+    })
+
+    it('reads an integer amount string and rejects a fractional one', function ()
+    {
+        const payload = valid_payload()
+        payload.collects[0].items[0].amount = '2'
+        const request = parse_request(payload)
+        expect(request.groups[0].items[0].amount).to.equal(2)
+
+        payload.collects[0].items[0].amount = '2.5'
+        expect(() => parse_request(payload)).to.throw(SelectorInputException)
+        try
+        {
+            parse_request(payload)
+        }
+        catch (error)
+        {
+            expect(error.message).to.equal(TRANSPORT_SELECTOR_MESSAGE.INVALID_FIELD)
+            expect(error.message_entry[1]).to.match(/amount/)
+        }
+    })
+
     it('rejects an unknown rotation', function ()
     {
         const payload = valid_payload()
