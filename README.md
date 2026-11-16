@@ -153,8 +153,8 @@ detail.
 | `MAX_MODEL_ROWS` | `200000` | constraints allowed in the model |
 | `PACKING_RETRY_LIMIT` | `3` | extra solves after a packing failure |
 | `SHUTDOWN_GRACE_MILLISECONDS` | `65000` | SIGTERM wait for in-flight solves |
-| `ENV` | unset | `dev` or `stage` turns the scaler heartbeat on |
-| `SYSTEM_SCALER_URL` | `http://system-scaler:8000` | heartbeat target when `ENV` is `dev` or `stage` |
+| `ENV` | unset | `dev` turns the scaler heartbeat on |
+| `SYSTEM_SCALER_URL` | `http://system-scaler:8000` | heartbeat target when `ENV` is `dev` |
 
 ## Dependencies
 

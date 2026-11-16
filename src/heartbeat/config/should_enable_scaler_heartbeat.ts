@@ -1,7 +1,7 @@
 import { SCALER_HEARTBEAT_ENVIRONMENTS } from './scaler_heartbeat_constants'
 
 /**
- * Heartbeat runs only in dev and stage.
+ * Heartbeat runs only in dev.
  * @param environment ENV value
  * @returns whether the heartbeat should run
  */
