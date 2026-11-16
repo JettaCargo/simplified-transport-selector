@@ -23,10 +23,6 @@ for FILE in "${staging_dir}"/*; do
   sed -i "s/VAR_NODEPOOL/${NODEPOOL}/g" "${FILE}"
   sed -i "s|VAR_CAPACITY_LINE|${CAPACITY_LINE}|g" "${FILE}"
 done
-kubectl delete -f "${staging_dir}/" --ignore-not-found
 kubectl apply -f "${staging_dir}/"
-deployment_name="${PROJECT_NAME}-${app_env}"
-# IMAGE_TAG is unique per commit (env-shortsha), so apply changes the image
-# reference and Kubernetes rolls new pods; status waits until they are ready.
-kubectl rollout status "deployment/${deployment_name}" --timeout=180s
-echo "Applied and rolled out ${deployment_name} with image tag ${IMAGE_TAG}"
+kubectl rollout status "deployment/${PROJECT_NAME}-${app_env}" --timeout=300s
+echo "Applied ${PROJECT_NAME}-${app_env} with image tag ${IMAGE_TAG}"
