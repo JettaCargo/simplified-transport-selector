@@ -62,5 +62,6 @@ function pack_vehicle(
     {
         return undefined
     }
-    return packed.bins.map(bin => ({ vehicle, groups: bin.length ? bin : groups }))
+    // Empty clones get their own copy so a later rebind can move groups between clones safely.
+    return packed.bins.map(bin => ({ vehicle, groups: bin.length ? bin : [...groups] }))
 }
