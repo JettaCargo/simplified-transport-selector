@@ -59,7 +59,7 @@ describe('ci image policy', function ()
         expect(workflow).to.include('npm run ci:coverage')
     })
 
-    it('keeps three images per environment prefix and expires untagged images after one day', function ()
+    it('keeps one image per environment prefix and expires untagged images after one day', function ()
     {
         const policy = JSON.parse(read_repository_file('k8s/ecr-lifecycle-policy.json'))
         const tagged_rules = policy.rules.filter(function (rule)
@@ -73,7 +73,7 @@ describe('ci image policy', function ()
         expect(prefixes).to.deep.equal(['dev-', 'stage-', 'prod-'])
         for (const rule of tagged_rules)
         {
-            expect(rule.selection.countNumber).to.equal(3)
+            expect(rule.selection.countNumber).to.equal(1)
         }
         const untagged = policy.rules.find(function (rule)
         {
