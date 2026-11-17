@@ -22,4 +22,5 @@ export const selector_input_schema = z.looseObject({
     second_criteria: criteria_schema,
     log_header: z.string().default(''),
     accessories: z.array(item_schema).default([]),
+    trace_id: z.string().optional(),
 })

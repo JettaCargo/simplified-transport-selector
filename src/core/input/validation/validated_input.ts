@@ -46,4 +46,5 @@ export interface Validated_Input
     accessories: Cargo_Item[]
     acceptDividedCollect?: unknown
     reselection_feedback?: unknown
+    trace_id?: string
 }
