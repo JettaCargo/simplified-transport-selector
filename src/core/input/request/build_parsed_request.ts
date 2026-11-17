@@ -29,5 +29,6 @@ export function build_parsed_request(
         log_header: input.log_header,
         selection_phase: detect_selection_phase(input.log_header),
         reselection_feedback: input.reselection_feedback || null,
+        trace_id: input.trace_id || null,
     }
 }
