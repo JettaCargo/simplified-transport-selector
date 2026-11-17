@@ -20,4 +20,5 @@ export interface Selector_Request
     log_header: string
     selection_phase: 'selection' | 'reselection'
     reselection_feedback: unknown
+    trace_id: string | null
 }
