@@ -3,7 +3,7 @@ const { vehicle_volume } = require('./capacity')
 /**
  * Parses the Java selector request into groups and vehicle types.
  * @param {object} payload raw request body
- * @returns {{groups: object[], vehicles: object[], gaps: object, config: object}}
+ * @returns {{groups: object[], vehicles: object[], gaps: object, config: object, trace_id: string|null, log_header: string}}
  */
 function parse_request(payload)
 {
@@ -30,6 +30,7 @@ function parse_request(payload)
         log_header: payload.log_header || '',
         selection_phase: detect_selection_phase(payload.log_header),
         reselection_feedback: payload.reselection_feedback || null,
+        trace_id: payload.trace_id || null,
     }
 }
 
