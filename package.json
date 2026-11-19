@@ -18,7 +18,7 @@
     "@jetta/http": "^0.1.2",
     "@jetta/logger": "^2.0.4",
     "@jetta/number-compare": "^3.0.3",
-    "@jetta/tracer": "^1.0.0",
+    "@jetta/tracer": "^1.0.1-0",
     "highs": "^1.15.4",
     "zod": "^4.6.7"
   },
