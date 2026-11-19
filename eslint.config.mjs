@@ -49,6 +49,9 @@ const test_rules = {
 
 export default [
     {
+        ignores: ['src/types/**']
+    },
+    {
         files: ['src/**/*.ts'],
         languageOptions: shared_parser,
         plugins: { '@typescript-eslint': eslintPluginTs },
