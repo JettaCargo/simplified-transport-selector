@@ -11,7 +11,7 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@jetta/tracer": "^1.0.0",
+    "@jetta/tracer": "^1.0.1-0",
     "highs": "^1.15.4"
   },
   "devDependencies": {
