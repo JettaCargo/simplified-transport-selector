@@ -28,6 +28,19 @@ spec:
           value: "8085"
         - name: LOG_LEVEL
           value: "INFO"
+        - name: DISABLE_TRACE
+          value: "false"
+        - name: TRACE_ENV
+          value: "VAR_ENV"
+        - name: APP_NAME
+          value: "VAR_NAME"
+        - name: TRACE_DB_HOST
+          value: "trace-db.monitoring.svc.cluster.local"
+        - name: TRACE_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: trace-db
+              key: REDIS_PASS
         resources:
           requests:
             memory: "256Mi"

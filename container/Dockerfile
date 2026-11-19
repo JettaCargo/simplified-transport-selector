@@ -1,9 +1,13 @@
+# syntax=docker/dockerfile:1
+
 FROM node:20-bookworm-slim
 
 WORKDIR /opt/app
 
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
+RUN --mount=type=cache,target=/root/.npm \
+    --mount=type=secret,id=npmrc,target=/opt/app/.npmrc \
+    npm ci --omit=dev --no-audit --no-fund
 
 COPY src ./src
 
