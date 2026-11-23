@@ -1,6 +1,6 @@
 const http = require('http')
 const { select_transports } = require('./select_transports')
-const { log_transport_selection_request } = require('./log_request')
+const { log_transport_selection_request, log_transport_selection_response } = require('./log_request')
 
 const PORT = Number(process.env.PORT || 8085)
 const HOST = process.env.HOST || '0.0.0.0'
@@ -45,18 +45,22 @@ function send_json(response, status, body)
  */
 async function handle_transports_selection(request, response)
 {
+    let payload = {}
     try
     {
         const raw = await read_body(request)
-        const payload = JSON.parse(raw)
+        payload = JSON.parse(raw)
         log_transport_selection_request(payload)
         const result = await select_transports(payload)
+        log_transport_selection_response(payload, result)
         send_json(response, 200, result)
     }
     catch (error)
     {
         const message = error && error.message ? error.message : String(error)
-        send_json(response, 200, { msg: message, apiError: message })
+        const result = { msg: message, apiError: message }
+        log_transport_selection_response(payload, result)
+        send_json(response, 200, result)
     }
 }
 

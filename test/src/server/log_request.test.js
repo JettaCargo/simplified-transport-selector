@@ -56,6 +56,11 @@ describe('transport selection request log', () =>
             expect(request_line).to.include('6b0431d2&1795437011023/waypoint-selection-0')
             expect(request_line).to.include('"collect_count":0')
             expect(request_line).to.include('"vehicle_count":0')
+            const response_line = lines.find(line => line.includes('Transport Selection Response'))
+            expect(response_line).to.include('6b0431d2&1795437011023')
+            expect(response_line).to.include('6b0431d2&1795437011023/waypoint-selection-0')
+            expect(response_line).to.include('"vehicle_slot_count":')
+            expect(response_line).to.include('"api_error":')
         }
         finally
         {
