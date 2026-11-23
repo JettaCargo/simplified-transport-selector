@@ -1,5 +1,6 @@
 const http = require('http')
 const { select_transports } = require('./select_transports')
+const { log_transport_selection_request } = require('./log_request')
 
 const PORT = Number(process.env.PORT || 8085)
 const HOST = process.env.HOST || '0.0.0.0'
@@ -48,6 +49,7 @@ async function handle_transports_selection(request, response)
     {
         const raw = await read_body(request)
         const payload = JSON.parse(raw)
+        log_transport_selection_request(payload)
         const result = await select_transports(payload)
         send_json(response, 200, result)
     }
