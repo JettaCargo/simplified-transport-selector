@@ -10,7 +10,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: VAR_NAME-VAR_ENV
-  minReplicas: 1
+  minReplicas: VAR_REPLICA_COUNT
   maxReplicas: 5
   metrics:
   - type: Resource
