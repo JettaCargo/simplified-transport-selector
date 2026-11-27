@@ -42,20 +42,22 @@ describe('k8s deploy manifests', function ()
         }
     })
 
-    it('keeps two replicas available through voluntary disruptions', function ()
+    it('sets two replicas outside dev and ships no disruption budget', function ()
     {
-        expect(read_repository_file('k8s/template/hpa.yaml')).to.match(/minReplicas: 2/)
-        expect(fs.readdirSync(TEMPLATE_DIR)).to.include('pdb.yaml')
-        const pdb = read_repository_file('k8s/template/pdb.yaml')
-        expect(pdb).to.match(/kind: PodDisruptionBudget[\s\S]*?VAR_BUDGET_LINE/)
-        expect(pdb).not.to.include('minAvailable')
+        expect(read_repository_file('k8s/template/hpa.yaml')).to.match(/minReplicas: VAR_REPLICA_COUNT/)
+        const apply_script = read_repository_file('scripts/ci_k8s_apply.sh')
+        expect(apply_script).to.match(/REPLICA_COUNT=2/)
+        expect(apply_script).not.to.include('BUDGET_LINE')
+        expect(fs.readdirSync(TEMPLATE_DIR)).not.to.include('pdb.yaml')
     })
 
-    it('applies in place and waits for the rollout instead of deleting resources', function ()
+    it('applies in place, waits for the rollout, then deletes only the disruption budget', function ()
     {
         const apply_script = read_repository_file('scripts/ci_k8s_apply.sh')
-        expect(apply_script).not.to.include('kubectl delete')
-        expect(apply_script).to.include('kubectl rollout status')
+        expect(apply_script).not.to.include('kubectl delete -f')
+        expect(apply_script).to.match(
+            /kubectl rollout status[\s\S]*kubectl delete "pdb\/\$\{PROJECT_NAME\}-\$\{app_env\}" --ignore-not-found=true/
+        )
     })
 
     it('deploys the immutable sha image tag, not the floating environment tag', function ()

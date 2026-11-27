@@ -6,7 +6,7 @@ metadata:
     env: VAR_ENV
   name: VAR_NAME-VAR_ENV
 spec:
-  replicas: 2
+  replicas: VAR_REPLICA_COUNT
   strategy:
     type: RollingUpdate
     rollingUpdate:
