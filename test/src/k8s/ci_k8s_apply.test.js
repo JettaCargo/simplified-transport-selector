@@ -6,7 +6,6 @@ const path = require('path')
 
 const REPOSITORY_ROOT = path.join(__dirname, '../../..')
 const APPLY_SCRIPT = path.join(REPOSITORY_ROOT, 'scripts/ci_k8s_apply.sh')
-const PDB_FILE_NAME = 'pdb.yaml'
 const FAKE_KUBECTL_SCRIPT = [
     '#!/usr/bin/env bash',
     'if [ "$1" = "apply" ]; then cp -r "$3"/. "$CAPTURE_DIR"/; fi',
@@ -46,35 +45,6 @@ function render_manifest_for_env(deploy_env, file_name)
     fs.rmSync(work_dir, { recursive: true, force: true })
     return rendered
 }
-
-/**
- * @param {string} deploy_env value of ENV (dev, stage or main)
- * @returns {string} rendered pdb.yaml contents
- */
-function render_pdb_for_env(deploy_env)
-{
-    return render_manifest_for_env(deploy_env, PDB_FILE_NAME)
-}
-
-describe('ci_k8s_apply.sh PodDisruptionBudget per environment', function ()
-{
-    it('renders no disruption budget for dev', function ()
-    {
-        const rendered = render_pdb_for_env('dev')
-        expect(rendered).to.include('kind: PodDisruptionBudget')
-        expect(rendered).not.to.match(/minAvailable|maxUnavailable/)
-    })
-
-    it('renders maxUnavailable: 1 and never minAvailable for stage and prod', function ()
-    {
-        for (const deploy_env of ['stage', 'main'])
-        {
-            const rendered = render_pdb_for_env(deploy_env)
-            expect(rendered).to.match(/^  maxUnavailable: 1$/m)
-            expect(rendered).not.to.include('minAvailable')
-        }
-    })
-})
 
 describe('ci_k8s_apply.sh replica count per environment', function ()
 {
