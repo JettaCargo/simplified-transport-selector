@@ -16,10 +16,8 @@ else
   CAPACITY_LINE=""
 fi
 if [ "${app_env}" = "dev" ]; then
-  BUDGET_LINE=""
   REPLICA_COUNT=1
 else
-  BUDGET_LINE="maxUnavailable: 1"
   REPLICA_COUNT=2
 fi
 cp "${repository_root}/k8s/template/"* "${staging_dir}/"
@@ -29,9 +27,9 @@ for FILE in "${staging_dir}"/*; do
   sed -i "s/VAR_VERSION/${IMAGE_TAG}/g" "${FILE}"
   sed -i "s/VAR_NODEPOOL/${NODEPOOL}/g" "${FILE}"
   sed -i "s|VAR_CAPACITY_LINE|${CAPACITY_LINE}|g" "${FILE}"
-  sed -i "s|VAR_BUDGET_LINE|${BUDGET_LINE}|g" "${FILE}"
   sed -i "s/VAR_REPLICA_COUNT/${REPLICA_COUNT}/g" "${FILE}"
 done
 kubectl apply -f "${staging_dir}/"
 kubectl rollout status "deployment/${PROJECT_NAME}-${app_env}" --timeout=300s
+kubectl delete "pdb/${PROJECT_NAME}-${app_env}" --ignore-not-found=true
 echo "Applied ${PROJECT_NAME}-${app_env} with image tag ${IMAGE_TAG}"

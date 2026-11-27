@@ -205,7 +205,6 @@ Availability settings in `k8s/template/`:
 - liveness on `/livez`, readiness on `/readyz`
 - `preStop` sleep of 10 seconds and `terminationGracePeriodSeconds: 90`, which covers `SHUTDOWN_GRACE_MILLISECONDS`
 - HorizontalPodAutoscaler `minReplicas: 2`, `maxReplicas: 5`, target 70% CPU
-- PodDisruptionBudget with `maxUnavailable: 1` for `stage` and `prod`; `dev` has no budget field (rendered by `scripts/ci_k8s_apply.sh` through `VAR_BUDGET_LINE`)
 - requests `512Mi` memory and `100m` CPU; limits `512Mi` memory and `500m` CPU
 
 One-time AWS setup (same pattern as `route-allocation-cache`):
